@@ -21,7 +21,7 @@ public class MenuNavig : MonoBehaviour
     }
     public void Play()
     {
-        SceneManager.LoadScene("SceneFaure");
+        SceneManager.LoadScene("sampleScene");
     }
     public void Quit()
     {
