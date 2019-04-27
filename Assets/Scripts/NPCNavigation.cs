@@ -19,7 +19,7 @@ public class NPCNavigation : MonoBehaviour {
     }
 
     private void Update() {
-        if ((agent.pathStatus == NavMeshPathStatus.PathComplete && agent.remainingDistance == 0) || agent.pathStatus == NavMeshPathStatus.PathInvalid) {
+        if ((agent.pathStatus == NavMeshPathStatus.PathComplete && agent.remainingDistance < 1) || agent.pathStatus == NavMeshPathStatus.PathInvalid) {
             UpdateTarget();
         }
     }
