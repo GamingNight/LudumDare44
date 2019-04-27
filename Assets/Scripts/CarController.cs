@@ -65,11 +65,11 @@ public class CarController : MonoBehaviour
         transform.Rotate(0, 0, -h * Time.deltaTime * speedLocal * steering * braking);
         foreach (ParticleSystem pcSystem in pcSystems)
         {
-            if (Mathf.Abs(speedDrift) > 10 && !pcSystem.isPlaying)
+            if ((Mathf.Abs(speedDrift) > 20 || (timer==0 && v<0)) && !pcSystem.isPlaying)
             {
                 pcSystem.Play(true);
             }
-            else if (Mathf.Abs(speedDrift) < 9)
+            else if ((Mathf.Abs(speedDrift) < 10 || timer >0.1) && pcSystem.isPlaying && v >= 0)
             {
                 pcSystem.Pause(true);
             }
