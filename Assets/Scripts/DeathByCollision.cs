@@ -24,6 +24,7 @@ public class DeathByCollision : MonoBehaviour {
             spriteRenderer.sprite = deathSprite;
             grazeTrigger.active = false;
             active = false; ;
+            GetComponent<NavMeshAgent>().enabled = false;
             StartCoroutine(InitiateDestroyCoroutine());
         }
     }
