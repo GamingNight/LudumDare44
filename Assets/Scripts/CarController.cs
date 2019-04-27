@@ -6,6 +6,8 @@ public class CarController : MonoBehaviour
     public float brakingInit = 50;
     public float steering = 0.2f;
     public float timer = 0f;
+    public float speedLocal = 0f;
+    public float speedDrift = 0f;
     float braking;
     Rigidbody rgbd;
     private ParticleSystem[] pcSystems;
@@ -28,8 +30,8 @@ public class CarController : MonoBehaviour
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
         bool accelerate = Input.GetButton("Accelerate");
-        float speedLocal = transform.InverseTransformDirection(rgbd.velocity).x;
-        float speedDrift = transform.InverseTransformDirection(rgbd.velocity).y;
+        speedLocal = transform.InverseTransformDirection(rgbd.velocity).x;
+        speedDrift = transform.InverseTransformDirection(rgbd.velocity).y;
         if (speedLocal <= 1)
         {
             timer = timer + Time.deltaTime;
