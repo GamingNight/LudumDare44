@@ -18,10 +18,22 @@ public class CarController : MonoBehaviour {
         bool accelerate = Input.GetButton("Accelerate");
         float speedLocal = transform.InverseTransformDirection(rgbd.velocity).x;
         float speedDrift = transform.InverseTransformDirection(rgbd.velocity).y;
+        float timer = 0f;
+        if (speedLocal <= 0){
+            timer = timer + Time.deltaTime;
+        }
+        else
+        {
+            timer = 0;
+        }
+        Debug.Log(timer);
         if (v < 0)
         {
             braking = braking * 1.2f;
-            rgbd.AddRelativeForce(-Time.deltaTime * carAcceleration/2*braking/brakingInit, 0, 0);
+            if (timer > 2)
+            {
+                rgbd.AddRelativeForce(-Time.deltaTime * carAcceleration / 2 * braking / brakingInit, 0, 0);
+            }
         }
         else
         {
