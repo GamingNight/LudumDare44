@@ -20,7 +20,6 @@ public class NPCNavigation : MonoBehaviour {
 
     private void Update() {
         if ((agent.pathStatus == NavMeshPathStatus.PathComplete && agent.remainingDistance == 0) || agent.pathStatus == NavMeshPathStatus.PathInvalid) {
-            Debug.Log(agent.pathStatus);
             UpdateTarget();
         }
     }
@@ -28,6 +27,5 @@ public class NPCNavigation : MonoBehaviour {
     private void UpdateTarget() {
         currentTarget = targets[UnityEngine.Random.Range(0, targets.Count)];
         agent.SetDestination(currentTarget);
-        Debug.Log("Update NPC target : " + currentTarget);
     }
 }

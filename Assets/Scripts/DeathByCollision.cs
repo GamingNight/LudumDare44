@@ -20,10 +20,10 @@ public class DeathByCollision : MonoBehaviour {
         GameObject player = GameManager.Instance().GetPlayer();
         if (other.gameObject == player && active) {
             player.GetComponent<StreamViewManager>().UpdateStreamPoints(points);
-            GetComponent<NavMeshAgent>().isStopped = true;
             spriteRenderer.sprite = deathSprite;
             grazeTrigger.active = false;
-            active = false; ;
+            active = false;
+            GetComponent<NPCNavigation>().enabled = false;
             GetComponent<NavMeshAgent>().enabled = false;
             StartCoroutine(InitiateDestroyCoroutine());
         }
