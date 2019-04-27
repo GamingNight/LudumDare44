@@ -18,7 +18,10 @@ public class CarController : MonoBehaviour {
 
         if (accelerate) {
             rgbd.AddRelativeForce(Time.deltaTime * strength, h * Time.deltaTime * strength, 0);
-            transform.Rotate(0,0,-h * Time.deltaTime * rotateSpeed, Space.Self);
+        }
+
+        if (Mathf.Abs(rgbd.velocity.x) > 0.01) {
+            transform.Rotate(0, 0, -h * Time.deltaTime * rotateSpeed, Space.Self);
         }
     }
 }
