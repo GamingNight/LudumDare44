@@ -11,12 +11,4 @@ public class CollisionTrigger : MonoBehaviour {
             player.GetComponent<StreamViewManager>().UpdateStreamPoints(points);
         }
     }
-
-    private void OnTriggerEnter(Collider other) {
-
-        GameObject player = GameManager.Instance().GetPlayer();
-        if (other.gameObject == player) {
-            player.GetComponent<StreamViewManager>().UpdateStreamPoints(points);
-        }
-    }
 }

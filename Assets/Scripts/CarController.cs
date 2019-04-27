@@ -54,8 +54,13 @@ public class CarController : MonoBehaviour
         {
             braking = brakingInit;
         }
+<<<<<<< HEAD
         if (accelerate)
         {
+=======
+        //Debug.Log(braking);
+        if (accelerate) {
+>>>>>>> 192a42c74f9e5ec3e4f4fe0325d7a4f5a1041b8b
             rgbd.AddRelativeForce(Time.deltaTime * carAcceleration, 0, 0);
         }
 

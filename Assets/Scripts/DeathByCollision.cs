@@ -1,20 +1,29 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class DeathByCollision : MonoBehaviour {
 
     public Sprite deathSprite;
-    SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
+    public float points = -50;
+    public bool active = true;
 
-    void Start() {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+    private GrazeTrigger grazeTrigger;
+
+    private void Start() {
+        grazeTrigger = GetComponentInChildren<GrazeTrigger>();
     }
 
     private void OnTriggerEnter(Collider other) {
 
         GameObject player = GameManager.Instance().GetPlayer();
-        if (other.gameObject == player) {
+        if (other.gameObject == player && active) {
+            player.GetComponent<StreamViewManager>().UpdateStreamPoints(points);
+            GetComponent<NavMeshAgent>().isStopped = true;
             spriteRenderer.sprite = deathSprite;
+            grazeTrigger.active = false;
+            active = false; ;
             StartCoroutine(InitiateDestroyCoroutine());
         }
     }
