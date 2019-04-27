@@ -198,8 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carAcceleration: 1000
-  brakingInit: 10
-  steering: 10
+  breaking: 10
 --- !u!65 &263264640
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -320,8 +319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carAcceleration: 2000
-  brakingInit: 50
-  steering: 0.2
+  breaking: 10
 --- !u!4 &388222253
 Transform:
   m_ObjectHideFlags: 0

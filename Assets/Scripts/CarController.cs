@@ -2,37 +2,37 @@
 
 public class CarController : MonoBehaviour {
     public float carAcceleration = 1000;
-    public float brakingInit = 10;
-    public float steering = 10;
+    public float brakingInit = 50;
+    public float steering = 0.2f;
+    public float timer = 0f;
+    float braking;
     Rigidbody rgbd;
 
     private void Start() {
 
         rgbd = GetComponent<Rigidbody>();
+        braking = brakingInit;
     }
 
     void FixedUpdate() {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
-        float braking = brakingInit;
         bool accelerate = Input.GetButton("Accelerate");
         float speedLocal = transform.InverseTransformDirection(rgbd.velocity).x;
         float speedDrift = transform.InverseTransformDirection(rgbd.velocity).y;
-        float timer = 0f;
-        if (speedLocal <= 0){
+        if (speedLocal <= 1){
             timer = timer + Time.deltaTime;
         }
         else
         {
             timer = 0;
         }
-        Debug.Log(timer);
         if (v < 0)
         {
-            braking = braking * 1.2f;
-            if (timer > 2)
+            braking = braking + Time.deltaTime*brakingInit/braking*40;
+            if (timer > 0.5)
             {
-                rgbd.AddRelativeForce(-Time.deltaTime * carAcceleration / 2 * braking / brakingInit, 0, 0);
+                rgbd.AddRelativeForce(-Time.deltaTime * carAcceleration / 2, 0, 0);
             }
         }
         else
@@ -40,7 +40,7 @@ public class CarController : MonoBehaviour {
             braking = brakingInit;
 
         }
-
+        Debug.Log(braking);
         if (accelerate) {
             rgbd.AddRelativeForce(Time.deltaTime * carAcceleration, 0, 0);
         }
