@@ -29,7 +29,6 @@ public class StreamViewManager : MonoBehaviour {
     private void Update() {
 
         //Update the points accumulated so far
-        Debug.Log(streamPoints);
         streamPoints -= Time.deltaTime * viewDecreaseSpeed;
         streamPoints = Mathf.Max(0, streamPoints);
         //Check the corresponding viewer index
