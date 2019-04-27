@@ -13,6 +13,20 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
 
+    void Update()
+    {
+        Debug.Log("pommier");
+        if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale != 0)
+        {
+            Time.timeScale = 0;
+            Debug.Log("pommier");
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+        }
+    }
+
     private void Awake() {
         if (instance == null)
             instance = this;

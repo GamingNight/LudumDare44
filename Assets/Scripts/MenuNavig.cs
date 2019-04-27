@@ -16,7 +16,6 @@ public class MenuNavig : MonoBehaviour
         if (submit)
         {
             Play();
-            Debug.Log("pommier");
         }
     }
     public void Play()
