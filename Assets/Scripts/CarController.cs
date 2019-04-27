@@ -30,7 +30,7 @@ public class CarController : MonoBehaviour {
         if (v < 0)
         {
             braking = braking + Time.deltaTime*brakingInit/braking*40;
-            if (timer > 0.4)
+            if (timer > 0.1)
             {
                 rgbd.AddRelativeForce(-Time.deltaTime * carAcceleration / 2, 0, 0);
             }
