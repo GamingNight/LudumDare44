@@ -1,19 +1,17 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class DeathByCollision : MonoBehaviour {
 
     public Sprite deathSprite;
-    SpriteRenderer spriteRenderer;
-
-    void Start() {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
+    public SpriteRenderer spriteRenderer;
 
     private void OnTriggerEnter(Collider other) {
 
         GameObject player = GameManager.Instance().GetPlayer();
         if (other.gameObject == player) {
+            GetComponent<NavMeshAgent>().isStopped = true;
             spriteRenderer.sprite = deathSprite;
             StartCoroutine(InitiateDestroyCoroutine());
         }
