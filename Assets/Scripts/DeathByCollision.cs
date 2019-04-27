@@ -21,6 +21,7 @@ public class DeathByCollision : MonoBehaviour {
         if (other.gameObject == player && active) {
             player.GetComponent<StreamViewManager>().UpdateStreamPoints(points);
             spriteRenderer.sprite = deathSprite;
+            spriteRenderer.sortingOrder = 0;
             grazeTrigger.active = false;
             active = false;
             GetComponent<NPCNavigation>().enabled = false;
