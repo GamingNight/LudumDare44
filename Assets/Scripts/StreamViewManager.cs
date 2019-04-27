@@ -4,13 +4,14 @@ using UnityEngine.UI;
 
 public class StreamViewManager : MonoBehaviour {
 
-    private static readonly int[] VIEWERS_LEVELS = { 10, 100, 1000, 10000 };
-    private static readonly Color[] VIEWERS_COLORS = { Color.red, Color.Lerp(Color.red, Color.green, 0.25f), Color.Lerp(Color.red, Color.green, 0.50f), Color.Lerp(Color.red, Color.green, 0.75f), Color.green };
-    private static readonly float[] MONEY_PROBAS = { 0.1f, 0.2f, 0.5f, 0.7f, 0.9f };
+    private static readonly int[] VIEWERS_LEVELS = { 0, 10, 100, 1000, 10000 };
+    private static readonly Color[] VIEWERS_COLORS = { Color.red, Color.Lerp(Color.red, Color.green, 0.2f), Color.Lerp(Color.red, Color.green, 0.4f), Color.Lerp(Color.red, Color.green, 0.6f), Color.Lerp(Color.red, Color.green, 0.8f), Color.green };
+    private static readonly float[] MONEY_PROBAS = { 0, 0.1f, 0.2f, 0.5f, 0.7f, 0.9f };
     private static readonly float MONEY_TIME_CHECK = 5f;
 
     public Image viewPanel;
     public Text viewCounter;
+    public Text moneyText;
     public Canvas carCanvas;
     public GameObject carTextUIPrefab;
     public int viewDecreaseSpeed = 5;
@@ -29,18 +30,13 @@ public class StreamViewManager : MonoBehaviour {
 
         //Update the points accumulated so far
         Debug.Log(streamPoints);
-        streamPoints -=  Time.deltaTime * viewDecreaseSpeed;
+        streamPoints -= Time.deltaTime * viewDecreaseSpeed;
         streamPoints = Mathf.Max(0, streamPoints);
         //Check the corresponding viewer index
         int viewerIndex = 0;
         while (viewerIndex < VIEWERS_LEVELS.Length && streamPoints > VIEWERS_LEVELS[viewerIndex]) {
             viewerIndex++;
         }
-
-        //Update View Counter
-        int roundedViews = Mathf.RoundToInt(streamPoints);
-        viewCounter.text = roundedViews + " viewer" + (roundedViews > 1 ? "s" : "");
-
 
         //Update View Panel
         Color panelColor = VIEWERS_COLORS[viewerIndex];
@@ -52,6 +48,11 @@ public class StreamViewManager : MonoBehaviour {
         if (timeSinceLastMoneyCheck >= MONEY_TIME_CHECK) {
             UpdateMoney(viewerIndex);
         }
+
+        //Update View and Money Counters
+        int roundedViews = Mathf.RoundToInt(streamPoints);
+        viewCounter.text = roundedViews.ToString();
+        moneyText.text = money.ToString();
     }
 
     public void UpdateStreamPoints(float points) {
@@ -62,7 +63,7 @@ public class StreamViewManager : MonoBehaviour {
 
     public void UpdateMoney(int viewerIndex) {
         float moneyProbability = Random.Range(0f, 1f);
-        if (moneyProbability >= MONEY_PROBAS[viewerIndex]) {
+        if (moneyProbability < MONEY_PROBAS[viewerIndex]) {
             money += Random.Range(30, 500);
         }
         timeSinceLastMoneyCheck = 0f;
