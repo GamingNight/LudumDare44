@@ -5,6 +5,7 @@ using UnityEngine.AI;
 public class NPCNavigation : MonoBehaviour {
 
     public GameObject targetContainer;
+    public Animator animator;
     private List<Vector3> targets;
     private Vector3 currentTarget;
     private NavMeshAgent agent;
@@ -22,6 +23,7 @@ public class NPCNavigation : MonoBehaviour {
         if ((agent.pathStatus == NavMeshPathStatus.PathComplete && agent.remainingDistance < 1) || agent.pathStatus == NavMeshPathStatus.PathInvalid) {
             UpdateTarget();
         }
+        animator.SetBool("walking", agent.velocity.magnitude > 0.01);
     }
 
     private void UpdateTarget() {

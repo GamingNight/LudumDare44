@@ -4,8 +4,9 @@ using UnityEngine.AI;
 
 public class DeathByCollision : MonoBehaviour {
 
-    public Sprite deathSprite;
     public SpriteRenderer spriteRenderer;
+    public Animator animator;
+
     public float points = -50;
     public bool active = true;
 
@@ -20,7 +21,7 @@ public class DeathByCollision : MonoBehaviour {
         GameObject player = GameManager.Instance().GetPlayer();
         if (other.gameObject == player && active) {
             player.GetComponent<StreamViewManager>().UpdateStreamPoints(points);
-            spriteRenderer.sprite = deathSprite;
+            animator.SetTrigger("die");
             spriteRenderer.sortingOrder = 0;
             grazeTrigger.active = false;
             active = false;
