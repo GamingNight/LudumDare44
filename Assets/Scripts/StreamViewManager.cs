@@ -14,6 +14,8 @@ public class StreamViewManager : MonoBehaviour {
     public Text moneyText;
     public Canvas carCanvas;
     public GameObject carTextUIPrefab;
+    public AudioSource pickupViewersSource;
+    public AudioSource loseViewersSource;
     public int minViewDecreaseSpeed = 5;
     public int maxViewDecreaseSpeed = 50;
     public bool neverEnd = false;
@@ -77,7 +79,14 @@ public class StreamViewManager : MonoBehaviour {
 
     public void UpdateStreamPoints(float points) {
         streamViews += points;
-        Color color = points > 0 ? Color.green : Color.red;
+        Color color;
+        if (points > 0) {
+            pickupViewersSource.Play();
+            color = Color.green;
+        } else {
+            loseViewersSource.Play();
+            color = Color.red;
+        }
         StartCoroutine(StartTextUICoroutine(color, points));
     }
 
