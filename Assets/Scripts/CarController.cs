@@ -7,11 +7,14 @@ public class CarController : MonoBehaviour {
     public float timer = 0f;
     public float speedLocal = 0f;
     public float speedDrift = 0f;
+    public AudioFade driftSound;
+    public AudioSource hornSound;
+
     float braking;
     Rigidbody rgbd;
     private ParticleSystem[] pcSystems;
-    public AudioFade driftSound;
-    public AudioSource hornSound;
+
+    private float initialPitch;
 
     private void Start() {
 
@@ -22,12 +25,14 @@ public class CarController : MonoBehaviour {
         }
 
         braking = brakingInit;
+        initialPitch = driftSound.source.pitch;
     }
 
     private void Update() {
 
-        if (Input.GetButtonDown("Horn"))
+        if (Input.GetButtonDown("Horn")) {
             hornSound.Play();
+        }
     }
 
     void FixedUpdate() {
@@ -62,6 +67,7 @@ public class CarController : MonoBehaviour {
         foreach (ParticleSystem pcSystem in pcSystems) {
             if ((Mathf.Abs(speedDrift) > 20 || (timer == 0 && v < 0)) && !pcSystem.isPlaying) {
                 pcSystem.Play(true);
+                driftSound.source.pitch = initialPitch + Random.Range(-0.2f, 0.2f);
                 driftSound.PlayWithFadeIn();
             } else if ((Mathf.Abs(speedDrift) < 10 || timer > 0.1) && pcSystem.isPlaying && v >= 0) {
                 pcSystem.Pause(true);
