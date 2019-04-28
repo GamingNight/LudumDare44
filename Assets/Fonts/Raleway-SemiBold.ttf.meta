@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e95b7f08433f8e241a949df4b2dc6790
+guid: e973e71171b15b44cb3e9861a882dbe1
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -12,7 +12,7 @@ TrueTypeFontImporter:
   fontNames:
   - Raleway SemiBold
   fallbackFontReferences:
-  - {fileID: 12800000, guid: a2fa5d84b0a79ba40828f40e754c5773, type: 3}
+  - {fileID: 12800000, guid: 593872d6c2c4bbf428cbc025f1ae0b04, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
