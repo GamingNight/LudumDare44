@@ -3530,9 +3530,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToFollow: {fileID: 925919294}
   strictFollow: 0
-  unsmooth: 1
-  distance: 45
+  smooth: 0
+  minDistance: 40
+  maxDistance: 60
   offsetValue: 15
+  maxXDistanceValue: 0
+  maxZDistanceValue: 0
 --- !u!1 &970115095
 GameObject:
   m_ObjectHideFlags: 0
@@ -9771,6 +9774,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6884481807475449039, guid: 0aa82175b35fc724c9a759487d7d17a2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0aa82175b35fc724c9a759487d7d17a2, type: 3}
