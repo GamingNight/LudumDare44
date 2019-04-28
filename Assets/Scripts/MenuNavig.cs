@@ -5,18 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MenuNavig : MonoBehaviour
 {
-    public Camera cam;
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 screenPos = cam.WorldToScreenPoint(Input.mousePosition);
-        bool submit = Input.GetButtonDown("Submit");
-        Debug.Log(screenPos);
-        if (submit)
-        {
-            Play();
-        }
     }
     public void Play()
     {
@@ -25,5 +17,9 @@ public class MenuNavig : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+    public void startMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }
