@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 237712424}
   - component: {fileID: 237712423}
   m_Layer: 5
-  m_Name: Image
+  m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -195,7 +195,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6944866590246662017}
-        m_MethodName: Play
+        m_MethodName: InitLaunchMainScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -812,7 +812,7 @@ GameObject:
   - component: {fileID: 6944866590043325258}
   - component: {fileID: 6944866590043325269}
   m_Layer: 5
-  m_Name: Image
+  m_Name: bulle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -60,7 +60,7 @@ public class StreamViewManager : MonoBehaviour {
         moneyText.text = money.ToString();
 
         if(streamViews == 0) {
-            GameManager.Instance().EndLive();
+            GameManager.Instance().EndLive(money);
         }
     }
 

@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/__DELETED_GUID_Trash/9fc0d4010bbf28b4594072e72b8655ab
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 6a5b400f322fd4249986e824aa91495f
+  - enabled: 1
+    path: Assets/Scenes/EndScreen.unity
+    guid: 67b259cf4e789fa49a8f9fb7643d6ae5
   m_configObjects: {}

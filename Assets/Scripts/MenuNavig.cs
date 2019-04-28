@@ -9,10 +9,6 @@ public class MenuNavig : MonoBehaviour
     void Update()
     {
     }
-    public void Play()
-    {
-        SceneManager.LoadScene("sampleScene");
-    }
     public void Quit()
     {
         Application.Quit();
@@ -43,5 +39,6 @@ public class MenuNavig : MonoBehaviour
             yield return new WaitForSeconds(step);
             currentTime += step;
         }
+        SceneManager.LoadScene("sampleScene");
     }
 }

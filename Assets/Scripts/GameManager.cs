@@ -1,20 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
+    public static float FINAL_MONEY;
+    public static float TOTAL_PLAY_TIME;
+
     public RectTransform phoneTransform;
-    private float lerpTime=1;
+    private float lerpTime = 1;
     float xI;
     float yI;
     private Vector2 posInit;
     bool pause;
-    Vector2 velocityDamp = new Vector2(0.0F,0.0F);
+    Vector2 velocityDamp = new Vector2(0.0F, 0.0F);
     //float test=0;
 
-    public static GameManager Instance() {
+    private float playtime;
+
+
+    public static GameManager Instance()
+    {
 
         return instance;
     }
@@ -28,10 +36,12 @@ public class GameManager : MonoBehaviour
         posInit = new Vector2(xI, yI);
 
         pause = false;
+        playtime = 0;
     }
 
     void Update()
     {
+        playtime += Time.deltaTime;
         //if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale != 0)
         //{
         //    Time.timeScale = 0;
@@ -52,10 +62,10 @@ public class GameManager : MonoBehaviour
             pause = false;
             lerpTime = 0;
         }
-        if (!pause && lerpTime==0)
+        if (!pause && lerpTime == 0)
         {
-//            test = Mathf.SmoothDamp(test, 10, ref velocityDamp, 0.1F);
-//            Debug.Log(test);
+            //            test = Mathf.SmoothDamp(test, 10, ref velocityDamp, 0.1F);
+            //            Debug.Log(test);
             float x = phoneTransform.anchoredPosition.x;
             float y = phoneTransform.anchoredPosition.y;
             Vector2 moveDamp = Vector2.SmoothDamp(phoneTransform.anchoredPosition, posInit, ref velocityDamp, 0.3f);
@@ -65,20 +75,29 @@ public class GameManager : MonoBehaviour
         {
             float x = phoneTransform.anchoredPosition.x;
             float y = phoneTransform.anchoredPosition.y;
-            Vector2 moveDamp = Vector2.SmoothDamp(phoneTransform.anchoredPosition, new Vector2(600,-700), ref velocityDamp, 0.3f);
+            Vector2 moveDamp = Vector2.SmoothDamp(phoneTransform.anchoredPosition, new Vector2(600, -700), ref velocityDamp, 0.3f);
             phoneTransform.anchoredPosition = moveDamp;
             //lerpTime = lerpTime + Time.deltaTime;
             //phoneTransform.anchoredPosition = new Vector2(Mathf.Lerp(xI, -700, lerpTime), Mathf.Lerp(yI, 200, lerpTime));
         }
     }
 
-    private void Awake() {
+    private void Awake()
+    {
         if (instance == null)
             instance = this;
     }
 
-    public GameObject GetPlayer() {
+    public GameObject GetPlayer()
+    {
         return player;
+    }
+
+    public void EndLive(float finalMoney)
+    {
+        FINAL_MONEY = finalMoney;
+        TOTAL_PLAY_TIME = playtime;
+        SceneManager.LoadScene("EndScreen");
     }
 
 }
