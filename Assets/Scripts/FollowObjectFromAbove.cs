@@ -16,7 +16,7 @@ public class FollowObjectFromAbove : MonoBehaviour {
     private Vector3 offset;
     private Vector3 velocity = Vector3.zero;
 
-    void Update() {
+    void FixedUpdate() {
 
         if (strictFollow) {
             transform.position = new Vector3(objectToFollow.transform.position.x, transform.position.y, objectToFollow.transform.position.z);
@@ -27,14 +27,13 @@ public class FollowObjectFromAbove : MonoBehaviour {
             float distance = (maxDistance - minDistance) * normVelocityForDistance + minDistance;
 
             //Adjust the offset in function of the velocity
-            float  normVelocityForOffset = Mathf.Min(velocity.magnitude, 10) / 10f;
-            //Debug.Log(normVelocityForOffset);
+            float normVelocityForOffset = Mathf.Min(velocity.magnitude, 10) / 10f;
             float adjustedOffsetValue = offsetValue * normVelocityForOffset;
             offset = objectToFollow.transform.right * adjustedOffsetValue;
 
             Vector3 target = new Vector3(objectToFollow.transform.position.x + offset.x, distance, objectToFollow.transform.position.z + offset.z);
             Vector3 transformToTarget = target - transform.position;
-            //Vector3 smoothTarget = Vector3.Lerp(transform.position, target, smooth * Time.deltaTime);
+            //Vector3 smoothTarget = Vector3.Lerp(transform.position, target, Time.deltaTime);
             Vector3 smoothTarget = Vector3.SmoothDamp(transform.position, target, ref velocity, smooth * Time.deltaTime);
 
             Vector3 clampedTarget = smoothTarget;
