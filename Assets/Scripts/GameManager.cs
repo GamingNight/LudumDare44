@@ -20,6 +20,11 @@ public class GameManager : MonoBehaviour
 
     private float playtime;
 
+    public float getPlayTime()
+    {
+        return playtime;
+    }
+
 
     public static GameManager Instance()
     {

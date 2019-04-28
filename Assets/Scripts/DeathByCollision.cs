@@ -25,6 +25,7 @@ public class DeathByCollision : MonoBehaviour {
             player.GetComponent<StreamViewManager>().UpdateStreamPoints(points);
             animator.SetTrigger("die");
             collisionSound.Play();
+            player.GetComponent<CarController>().setFearStatus(true);
             spriteRenderer.sortingOrder = 0;
             spriteRenderer.color = new Color(255, 255, 255, 255);
             grazeTrigger.active = false;

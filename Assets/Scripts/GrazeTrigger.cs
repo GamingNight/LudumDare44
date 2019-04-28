@@ -15,7 +15,10 @@ public class GrazeTrigger : MonoBehaviour {
         	float speedLocal = Mathf.Abs(car_controller.speedLocal);
         	float limit = 10;
             if ((speedDrift > limit) || (speedLocal > limit))
+            {
             	player.GetComponent<StreamViewManager>().UpdateStreamPoints(points);
+                car_controller.setFearStatus(true);
+            }
         }
     }
 }
