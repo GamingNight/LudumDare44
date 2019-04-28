@@ -104,6 +104,7 @@ public class CarController : MonoBehaviour
                 driftSound.source.pitch = initialPitch + Random.Range(-0.2f, 0.2f);
                 driftSound.PlayWithFadeIn();
             } else if ((Mathf.Abs(speedDrift) < 10 || timer > 0.1) && pcSystem.isPlaying && v >= 0) {
+                driftSound.StopWithFadeOut();
                 pcSystem.Pause(true);
             }
             //Debug.Log(pcSystem.isPlaying+"    "+speedDrift);
