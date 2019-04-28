@@ -12,6 +12,7 @@ public class MenuNavig : MonoBehaviour
     }
     public void Play()
     {
+        Debug.Log("pommier");
         SceneManager.LoadScene("sampleScene");
     }
     public void Quit()
