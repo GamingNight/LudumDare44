@@ -23,6 +23,7 @@ public class DeathByCollision : MonoBehaviour {
             player.GetComponent<StreamViewManager>().UpdateStreamPoints(points);
             animator.SetTrigger("die");
             spriteRenderer.sortingOrder = 0;
+            spriteRenderer.color = new Color(255, 255, 255, 255);
             grazeTrigger.active = false;
             active = false;
             GetComponent<NPCNavigation>().enabled = false;

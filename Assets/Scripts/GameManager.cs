@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     private Vector2 posInit;
     bool pause;
     Vector2 velocityDamp = new Vector2(0.0F,0.0F);
-    float test=0;
+    //float test=0;
 
     public static GameManager Instance() {
 
