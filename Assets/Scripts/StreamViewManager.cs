@@ -16,6 +16,7 @@ public class StreamViewManager : MonoBehaviour {
     public GameObject carTextUIPrefab;
     public int minViewDecreaseSpeed = 5;
     public int maxViewDecreaseSpeed = 50;
+    public bool neverEnd = false;
 
     private float streamViews;
     private float money;
@@ -59,7 +60,7 @@ public class StreamViewManager : MonoBehaviour {
         viewCounter.text = roundedViews.ToString();
         moneyText.text = money.ToString();
 
-        if(streamViews == 0) {
+        if(streamViews == 0 && !neverEnd) {
             GameManager.Instance().EndLive(money);
         }
     }
