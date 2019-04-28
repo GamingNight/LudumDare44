@@ -5,6 +5,14 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
+    public RectTransform phoneTransform;
+    private float lerpTime=1;
+    float xI;
+    float yI;
+    private Vector2 posInit;
+    bool pause;
+    Vector2 velocityDamp = new Vector2(0.0F,0.0F);
+    float test=0;
 
     public static GameManager Instance() {
 
@@ -13,17 +21,54 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
 
+    void Start()
+    {
+        xI = phoneTransform.anchoredPosition.x;
+        yI = phoneTransform.anchoredPosition.y;
+        posInit = new Vector2(xI, yI);
+
+        pause = false;
+    }
+
     void Update()
     {
-        Debug.Log("pommier");
-        if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale != 0)
+        //if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale != 0)
+        //{
+        //    Time.timeScale = 0;
+        //    lerpTime = 0;
+        //}
+        //else if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale == 0)
+        //{
+        //    Time.timeScale = 1;
+        //    lerpTime = 0;
+        //}
+        if (Input.GetKeyDown(KeyCode.Escape) && !pause)
         {
-            Time.timeScale = 0;
-            Debug.Log("pommier");
+            pause = true;
+            lerpTime = 0;
         }
-        else if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale == 0)
+        else if (Input.GetKeyDown(KeyCode.Escape) && pause)
         {
-            Time.timeScale = 1;
+            pause = false;
+            lerpTime = 0;
+        }
+        if (!pause && lerpTime==0)
+        {
+//            test = Mathf.SmoothDamp(test, 10, ref velocityDamp, 0.1F);
+//            Debug.Log(test);
+            float x = phoneTransform.anchoredPosition.x;
+            float y = phoneTransform.anchoredPosition.y;
+            Vector2 moveDamp = Vector2.SmoothDamp(phoneTransform.anchoredPosition, posInit, ref velocityDamp, 0.3f);
+            phoneTransform.anchoredPosition = moveDamp;
+        }
+        else if (pause)
+        {
+            float x = phoneTransform.anchoredPosition.x;
+            float y = phoneTransform.anchoredPosition.y;
+            Vector2 moveDamp = Vector2.SmoothDamp(phoneTransform.anchoredPosition, new Vector2(-700,200), ref velocityDamp, 0.3f);
+            phoneTransform.anchoredPosition = moveDamp;
+            //lerpTime = lerpTime + Time.deltaTime;
+            //phoneTransform.anchoredPosition = new Vector2(Mathf.Lerp(xI, -700, lerpTime), Mathf.Lerp(yI, 200, lerpTime));
         }
     }
 

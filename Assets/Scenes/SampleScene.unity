@@ -325,7 +325,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -10, y: -200}
+  m_AnchoredPosition: {x: -10.090027, y: -199.99997}
   m_SizeDelta: {x: 318, y: 600}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &69796345
@@ -554,6 +554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f79c66549729364b85956902b1d6a26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  phoneTransform: {fileID: 69796344}
   player: {fileID: 1012174286}
 --- !u!4 &224500294
 Transform:
