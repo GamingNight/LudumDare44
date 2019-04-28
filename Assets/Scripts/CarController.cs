@@ -27,6 +27,7 @@ public class CarController : MonoBehaviour
         fearStatus = status;
         if (status)
             fearTimer = GameManager.Instance().getPlayTime();
+    }
     
     private float initialPitch;
 
