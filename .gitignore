@@ -36,3 +36,14 @@ Assets/Scenes/SampleScene.unity
 Assets/Scripts/CarController.cs
 Assets/Scenes/SampleScene.unity
 Assets/Scripts/CarController.cs
+*.mat
+Assets/Materials/Decors/Passages cloutés/Passage clouté big.mat
+Assets/Materials/Decors/Passages cloutés/Passage clouté big.mat
+Assets/Prefabs/Décors/Passage couté big.prefab.meta
+Assets/Scenes/SceneLeo.unity
+Assets/Scripts/FollowObjectFromAbove.cs
+Assets/Sprites/Décors/Immeuble/immeublesPassage-clouté-big.png.meta
+Assets/Sprites/UI/Téléphone/TelephoneTéléphone-Reperes.png.meta
+Assets/Sprites/Décors/Immeuble/immeublesPassage-clouté-big.png.meta
+Assets/Scripts/FollowObjectFromAbove.cs
+*.mat
