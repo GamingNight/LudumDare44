@@ -8,6 +8,8 @@ public class CarController : MonoBehaviour
     public float timer = 0f;
     public float speedLocal = 0f;
     public float speedDrift = 0f;
+    public AudioFade driftSound;
+    public AudioSource hornSound;
 
     float braking;
     Rigidbody rgbd;
@@ -25,7 +27,9 @@ public class CarController : MonoBehaviour
         fearStatus = status;
         if (status)
             fearTimer = GameManager.Instance().getPlayTime();
-    }
+    
+    private float initialPitch;
+
 
     private void Start()
     {
@@ -38,10 +42,21 @@ public class CarController : MonoBehaviour
         }
 
         braking = brakingInit;
+        initialPitch = driftSound.source.pitch;
     }
 
-    void FixedUpdate()
-    {
+    private void Update() {
+
+        if (Input.GetButtonDown("Horn")) {
+            hornSound.Play();
+        }
+        if (GameManager.Instance().getPlayTime() - fearTimer > 10) {
+            fearTimer = 0;
+            fearStatus = false;
+        }
+    }
+
+    void FixedUpdate() {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
         bool accelerate = Input.GetButton("Accelerate");
@@ -85,20 +100,12 @@ public class CarController : MonoBehaviour
             if ((Mathf.Abs(speedDrift) > 20 || (timer==0 && v<0)) && !pcSystem.isPlaying)
             {
                 pcSystem.Play(true);
-            }
-            else if ((Mathf.Abs(speedDrift) < 10 || timer >0.1) && pcSystem.isPlaying && v >= 0)
-            {
+                driftSound.source.pitch = initialPitch + Random.Range(-0.2f, 0.2f);
+                driftSound.PlayWithFadeIn();
+            } else if ((Mathf.Abs(speedDrift) < 10 || timer > 0.1) && pcSystem.isPlaying && v >= 0) {
                 pcSystem.Pause(true);
             }
             //Debug.Log(pcSystem.isPlaying+"    "+speedDrift);
         }
-    }
-
-        private void Update() {
-            if (GameManager.Instance().getPlayTime() - fearTimer > 10) {
-                fearTimer = 0;
-                fearStatus = false;
-            }
-
     }
 }

@@ -177,6 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points: 100
   active: 1
+  grazeSpeedLimit: 15
 --- !u!1 &2195982603215944584
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,10 +12,12 @@ public class DeathByCollision : MonoBehaviour {
 
     private GrazeTrigger grazeTrigger;
     private AudioSource collisionSound;
+    private float initialPitch;
 
     private void Start() {
         grazeTrigger = GetComponentInChildren<GrazeTrigger>();
         collisionSound = GetComponent<AudioSource>();
+        initialPitch = collisionSound.pitch;
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -24,6 +26,7 @@ public class DeathByCollision : MonoBehaviour {
         if (other.gameObject == player && active) {
             player.GetComponent<StreamViewManager>().UpdateStreamPoints(points);
             animator.SetTrigger("die");
+            collisionSound.pitch = initialPitch + Random.Range(-0.2f, 0.2f);
             collisionSound.Play();
             player.GetComponent<CarController>().setFearStatus(true);
             spriteRenderer.sortingOrder = 0;
