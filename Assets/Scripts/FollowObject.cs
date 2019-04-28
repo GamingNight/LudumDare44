@@ -1,38 +1,26 @@
 ﻿using UnityEngine;
 
-public class FollowObject : MonoBehaviour
-{
+public class FollowObject : MonoBehaviour {
 
     public GameObject objectToFollow;
+    public bool strictFollow;
 
-    //void Update() {
-
-    //    transform.position = new Vector3(objectToFollow.position.x, transform.position.y, objectToFollow.position.z);
-    //}
-
-    public float smooth;
+    public float unsmooth;
     public float distance;
     public float offsetValue;
 
-    private Vector3 position;
     private Vector3 offset;
 
-    void Start()
-    {
+    void Update() {
 
-        position = transform.position;
-        offset = new Vector3(offsetValue, 0f, 0f);
+        if (strictFollow) {
+            transform.position = new Vector3(objectToFollow.transform.position.x, transform.position.y, objectToFollow.transform.position.z);
+        } else {
+            offset = objectToFollow.transform.right * offsetValue;
+            Vector3 target = new Vector3(objectToFollow.transform.position.x + offset.x, distance, objectToFollow.transform.position.z + offset.z);
 
-    }
-
-    void FixedUpdate()
-    {
-
-        position = Vector3.Lerp(position, objectToFollow.transform.position, (smooth * Time.fixedDeltaTime));
-        position = new Vector3(position.x, distance, position.z);
-
-        transform.position = position + offset;
-
+            transform.position = Vector3.Lerp(transform.position, target, unsmooth * Time.deltaTime);
+        }
     }
 
 

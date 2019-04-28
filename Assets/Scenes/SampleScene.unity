@@ -517,6 +517,11 @@ PrefabInstance:
       propertyPath: objectToFollow
       value: 
       objectReference: {fileID: 1012174286}
+    - target: {fileID: 4181295238423873419, guid: 74d3a23be1904a34fa82a4a4532ce9c3,
+        type: 3}
+      propertyPath: strictFollow
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74d3a23be1904a34fa82a4a4532ce9c3, type: 3}
 --- !u!223 &214412758 stripped
@@ -1131,7 +1136,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: NaN, z: 1.016e-42, w: 3.8258498e+28}
+  m_BoundingSphereOverride: {x: 1.016e-42, y: 3.7842174e+28, z: 4.5904e-41, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1489,9 +1494,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToFollow: {fileID: 1012174286}
-  smooth: 3.5
+  unsmooth: 1
   distance: 45
   offsetValue: 15
+  strictFollow: 0
 --- !u!1001 &964307472
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1568,6 +1574,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4486846072942997105, guid: 1f0f4a19b6a25754cb6187e18f5fdfb3,
+        type: 3}
+      propertyPath: viewPanel
+      value: 
+      objectReference: {fileID: 1672414692}
+    - target: {fileID: 4486846072942997105, guid: 1f0f4a19b6a25754cb6187e18f5fdfb3,
+        type: 3}
+      propertyPath: viewCounter
+      value: 
+      objectReference: {fileID: 36796}
+    - target: {fileID: 4486846072942997105, guid: 1f0f4a19b6a25754cb6187e18f5fdfb3,
+        type: 3}
+      propertyPath: carCanvas
+      value: 
+      objectReference: {fileID: 214412758}
+    - target: {fileID: 4486846072942997105, guid: 1f0f4a19b6a25754cb6187e18f5fdfb3,
+        type: 3}
+      propertyPath: moneyText
+      value: 
+      objectReference: {fileID: 394025707}
+    - target: {fileID: 4486846072942997105, guid: 1f0f4a19b6a25754cb6187e18f5fdfb3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3102176302719633566, guid: 1f0f4a19b6a25754cb6187e18f5fdfb3,
         type: 3}
       propertyPath: m_Name
@@ -1633,15 +1664,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 227216509, guid: 1f0f4a19b6a25754cb6187e18f5fdfb3, type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5655259717119522818, guid: 1f0f4a19b6a25754cb6187e18f5fdfb3,
-        type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 3102176302719633561, guid: 1f0f4a19b6a25754cb6187e18f5fdfb3,
         type: 3}
       propertyPath: m_Enabled
@@ -1672,31 +1694,6 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 2.2
       objectReference: {fileID: 0}
-    - target: {fileID: 4486846072942997105, guid: 1f0f4a19b6a25754cb6187e18f5fdfb3,
-        type: 3}
-      propertyPath: viewPanel
-      value: 
-      objectReference: {fileID: 1672414692}
-    - target: {fileID: 4486846072942997105, guid: 1f0f4a19b6a25754cb6187e18f5fdfb3,
-        type: 3}
-      propertyPath: viewCounter
-      value: 
-      objectReference: {fileID: 36796}
-    - target: {fileID: 4486846072942997105, guid: 1f0f4a19b6a25754cb6187e18f5fdfb3,
-        type: 3}
-      propertyPath: carCanvas
-      value: 
-      objectReference: {fileID: 214412758}
-    - target: {fileID: 4486846072942997105, guid: 1f0f4a19b6a25754cb6187e18f5fdfb3,
-        type: 3}
-      propertyPath: moneyText
-      value: 
-      objectReference: {fileID: 394025707}
-    - target: {fileID: 4486846072942997105, guid: 1f0f4a19b6a25754cb6187e18f5fdfb3,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3102176301728727935, guid: 1f0f4a19b6a25754cb6187e18f5fdfb3,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -1721,10 +1718,19 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.89
       objectReference: {fileID: 0}
+    - target: {fileID: 227216509, guid: 1f0f4a19b6a25754cb6187e18f5fdfb3, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3102176301728727932, guid: 1f0f4a19b6a25754cb6187e18f5fdfb3,
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655259717119522818, guid: 1f0f4a19b6a25754cb6187e18f5fdfb3,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f0f4a19b6a25754cb6187e18f5fdfb3, type: 3}
@@ -2710,6 +2716,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2195982603215944594, guid: 168b24e8dc6bcd6459945631262a28e0,
+        type: 3}
+      propertyPath: m_AutoTraverseOffMeshLink
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2195982603215944595, guid: 168b24e8dc6bcd6459945631262a28e0,
         type: 3}
       propertyPath: targetContainer
@@ -2718,11 +2729,6 @@ PrefabInstance:
     - target: {fileID: 2195982601368922311, guid: 168b24e8dc6bcd6459945631262a28e0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2195982603215944594, guid: 168b24e8dc6bcd6459945631262a28e0,
-        type: 3}
-      propertyPath: m_AutoTraverseOffMeshLink
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2195982601368922308, guid: 168b24e8dc6bcd6459945631262a28e0,
