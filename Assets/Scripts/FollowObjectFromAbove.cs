@@ -6,7 +6,8 @@ public class FollowObjectFromAbove : MonoBehaviour {
     public bool strictFollow;
 
     public float smooth;
-    public float distance;
+    public float minDistance = 40;
+    public float maxDistance = 60;
     public float offsetValue;
 
     public float maxXDistanceValue;
@@ -20,28 +21,39 @@ public class FollowObjectFromAbove : MonoBehaviour {
         if (strictFollow) {
             transform.position = new Vector3(objectToFollow.transform.position.x, transform.position.y, objectToFollow.transform.position.z);
         } else {
-            offset = objectToFollow.transform.right * offsetValue;
+
+            //Adjust the distance to the object to follow in function of its velocity.
+            float normVelocityForDistance = 1 - (60 - Mathf.Min(Mathf.Max(velocity.magnitude, 20), 60)) / (60 - 20);
+            float distance = (maxDistance - minDistance) * normVelocityForDistance + minDistance;
+
+            //Adjust the offset in function of the velocity
+            float  normVelocityForOffset = Mathf.Min(velocity.magnitude, 10) / 10f;
+            //Debug.Log(normVelocityForOffset);
+            float adjustedOffsetValue = offsetValue * normVelocityForOffset;
+            offset = objectToFollow.transform.right * adjustedOffsetValue;
+
             Vector3 target = new Vector3(objectToFollow.transform.position.x + offset.x, distance, objectToFollow.transform.position.z + offset.z);
             Vector3 transformToTarget = target - transform.position;
             //Vector3 smoothTarget = Vector3.Lerp(transform.position, target, smooth * Time.deltaTime);
             Vector3 smoothTarget = Vector3.SmoothDamp(transform.position, target, ref velocity, smooth * Time.deltaTime);
+
+            Vector3 clampedTarget = smoothTarget;
             if (Mathf.Abs(transformToTarget.x) > maxXDistanceValue) {
                 if (transformToTarget.x > 0) {
-                    smoothTarget.x = target.x - maxXDistanceValue;
+                    clampedTarget.x = target.x - maxXDistanceValue;
                 } else {
-                    smoothTarget.x = target.x + maxXDistanceValue;
+                    clampedTarget.x = target.x + maxXDistanceValue;
                 }
             }
             if (Mathf.Abs(transformToTarget.z) > maxZDistanceValue) {
                 if (transformToTarget.z > 0) {
-                    smoothTarget.z = target.z - maxZDistanceValue;
+                    clampedTarget.z = target.z - maxZDistanceValue;
                 } else {
-                    smoothTarget.z = target.z + maxZDistanceValue;
+                    clampedTarget.z = target.z + maxZDistanceValue;
                 }
             }
 
-            transform.position = smoothTarget;
-            //transform.LookAt(objectToFollow.transform);
+            transform.position = clampedTarget;
         }
     }
 
