@@ -11,9 +11,11 @@ public class DeathByCollision : MonoBehaviour {
     public bool active = true;
 
     private GrazeTrigger grazeTrigger;
+    private AudioSource collisionSound;
 
     private void Start() {
         grazeTrigger = GetComponentInChildren<GrazeTrigger>();
+        collisionSound = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -22,6 +24,7 @@ public class DeathByCollision : MonoBehaviour {
         if (other.gameObject == player && active) {
             player.GetComponent<StreamViewManager>().UpdateStreamPoints(points);
             animator.SetTrigger("die");
+            collisionSound.Play();
             spriteRenderer.sortingOrder = 0;
             spriteRenderer.color = new Color(255, 255, 255, 255);
             grazeTrigger.active = false;

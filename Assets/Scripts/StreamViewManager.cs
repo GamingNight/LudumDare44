@@ -60,16 +60,16 @@ public class StreamViewManager : MonoBehaviour {
         viewCounter.text = roundedViews.ToString();
         moneyText.text = money.ToString();
 
-        if(streamViews == 0 && !neverEnd) {
+        if (streamViews == 0 && !neverEnd) {
             GameManager.Instance().EndLive(money);
         }
     }
 
     private float computeViewsDecreaseSpeed(float currentViewDecreaseSpeed) {
 
-        float velocity = rgbd.velocity.magnitude;
         float minVelocity = 10f;
         float maxVelocity = 40f;
+        float velocity = Mathf.Min(maxVelocity, Mathf.Max(minVelocity, rgbd.velocity.magnitude));
         float normvelocity = (velocity - minVelocity) / (maxVelocity - minVelocity);
         float targetDecreaseSpeed = minViewDecreaseSpeed + (1 - normvelocity) * (maxViewDecreaseSpeed - minViewDecreaseSpeed);
         return Mathf.Lerp(currentViewDecreaseSpeed, targetDecreaseSpeed, Time.deltaTime / 10f);
