@@ -14,26 +14,32 @@ public class StreamViewManager : MonoBehaviour {
     public Text moneyText;
     public Canvas carCanvas;
     public GameObject carTextUIPrefab;
-    public int viewDecreaseSpeed = 5;
+    public int minViewDecreaseSpeed = 5;
+    public int maxViewDecreaseSpeed = 50;
 
-    private float streamPoints;
+    private float streamViews;
     private float money;
     private float timeSinceLastMoneyCheck;
+    private Rigidbody rgbd;
+    private float viewDecreaseSpeed;
 
     void Start() {
-        streamPoints = 50;
+        streamViews = 200;
         money = 0;
         timeSinceLastMoneyCheck = 0;
+        rgbd = GetComponent<Rigidbody>();
+        viewDecreaseSpeed = minViewDecreaseSpeed;
     }
 
     private void Update() {
 
-        //Update the points accumulated so far
-        streamPoints -= Time.deltaTime * viewDecreaseSpeed;
-        streamPoints = Mathf.Max(0, streamPoints);
+        //Decrease views accumulated so far depending on the veolcity of the car
+        viewDecreaseSpeed = computeViewsDecreaseSpeed(viewDecreaseSpeed);
+        streamViews -= Time.deltaTime * viewDecreaseSpeed;
+        streamViews = Mathf.Max(0, streamViews);
         //Check the corresponding viewer index
         int viewerIndex = 0;
-        while (viewerIndex < VIEWERS_LEVELS.Length && streamPoints > VIEWERS_LEVELS[viewerIndex]) {
+        while (viewerIndex < VIEWERS_LEVELS.Length && streamViews > VIEWERS_LEVELS[viewerIndex]) {
             viewerIndex++;
         }
 
@@ -48,14 +54,28 @@ public class StreamViewManager : MonoBehaviour {
             UpdateMoney(viewerIndex);
         }
 
-        //Update View and Money Counters
-        int roundedViews = Mathf.RoundToInt(streamPoints);
+        //Update View and Money HUD
+        int roundedViews = Mathf.RoundToInt(streamViews);
         viewCounter.text = roundedViews.ToString();
         moneyText.text = money.ToString();
+
+        if(streamViews == 0) {
+            GameManager.Instance().EndLive();
+        }
+    }
+
+    private float computeViewsDecreaseSpeed(float currentViewDecreaseSpeed) {
+
+        float velocity = rgbd.velocity.magnitude;
+        float minVelocity = 10f;
+        float maxVelocity = 40f;
+        float normvelocity = (velocity - minVelocity) / (maxVelocity - minVelocity);
+        float targetDecreaseSpeed = minViewDecreaseSpeed + (1 - normvelocity) * (maxViewDecreaseSpeed - minViewDecreaseSpeed);
+        return Mathf.Lerp(currentViewDecreaseSpeed, targetDecreaseSpeed, Time.deltaTime / 10f);
     }
 
     public void UpdateStreamPoints(float points) {
-        streamPoints += points;
+        streamViews += points;
         Color color = points > 0 ? Color.green : Color.red;
         StartCoroutine(StartTextUICoroutine(color, points));
     }
