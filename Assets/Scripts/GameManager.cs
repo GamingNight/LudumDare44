@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
         {
             float x = phoneTransform.anchoredPosition.x;
             float y = phoneTransform.anchoredPosition.y;
-            Vector2 moveDamp = Vector2.SmoothDamp(phoneTransform.anchoredPosition, new Vector2(-700,200), ref velocityDamp, 0.3f);
+            Vector2 moveDamp = Vector2.SmoothDamp(phoneTransform.anchoredPosition, new Vector2(600,-700), ref velocityDamp, 0.3f);
             phoneTransform.anchoredPosition = moveDamp;
             //lerpTime = lerpTime + Time.deltaTime;
             //phoneTransform.anchoredPosition = new Vector2(Mathf.Lerp(xI, -700, lerpTime), Mathf.Lerp(yI, 200, lerpTime));
