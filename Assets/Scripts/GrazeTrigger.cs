@@ -10,7 +10,7 @@ public class GrazeTrigger : MonoBehaviour {
     private float timeSinceLastStayUpdate;
 
     private void Start() {
-        timeSinceLastStayUpdate = 0f;
+        timeSinceLastStayUpdate = Time.time;
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -30,11 +30,13 @@ public class GrazeTrigger : MonoBehaviour {
 
     private void OnTriggerStay(Collider other) {
 
-        if (!updateViewersAtStay || (Time.time - timeSinceLastStayUpdate) < 0.2)
-            return;
         GameObject player = GameManager.Instance().GetPlayer();
-
         if (other.gameObject == player && active) {
+
+            if (!updateViewersAtStay || (Time.time - timeSinceLastStayUpdate) < 0.2) {
+                return;
+            }
+
             CarController car_controller = player.GetComponent<CarController>();
             float speedDrift = Mathf.Abs(car_controller.speedDrift);
             float speedLocal = Mathf.Abs(car_controller.speedLocal);
