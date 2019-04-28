@@ -5,11 +5,15 @@ public class FollowObjectFromAbove : MonoBehaviour {
     public GameObject objectToFollow;
     public bool strictFollow;
 
-    public float unsmooth;
+    public float smooth;
     public float distance;
     public float offsetValue;
 
+    public float maxXDistanceValue;
+    public float maxZDistanceValue;
+
     private Vector3 offset;
+    private Vector3 velocity = Vector3.zero;
 
     void Update() {
 
@@ -18,19 +22,26 @@ public class FollowObjectFromAbove : MonoBehaviour {
         } else {
             offset = objectToFollow.transform.right * offsetValue;
             Vector3 target = new Vector3(objectToFollow.transform.position.x + offset.x, distance, objectToFollow.transform.position.z + offset.z);
-            Vector3 smoothTarget = Vector3.Lerp(transform.position, target, unsmooth * Time.deltaTime);
-
-            float distanceToSmoothTarget = (smoothTarget - transform.position).magnitude;
-
-            Vector3 finalTarget = smoothTarget;
-            if (distanceToSmoothTarget > 0.5) {
-                Vector3 distanceToTargetVec = target - transform.position;
-            } else if (distanceToSmoothTarget < 0.2) {
-                Debug.Log("Very close");
+            Vector3 transformToTarget = target - transform.position;
+            //Vector3 smoothTarget = Vector3.Lerp(transform.position, target, smooth * Time.deltaTime);
+            Vector3 smoothTarget = Vector3.SmoothDamp(transform.position, target, ref velocity, smooth * Time.deltaTime);
+            if (Mathf.Abs(transformToTarget.x) > maxXDistanceValue) {
+                if (transformToTarget.x > 0) {
+                    smoothTarget.x = target.x - maxXDistanceValue;
+                } else {
+                    smoothTarget.x = target.x + maxXDistanceValue;
+                }
+            }
+            if (Mathf.Abs(transformToTarget.z) > maxZDistanceValue) {
+                if (transformToTarget.z > 0) {
+                    smoothTarget.z = target.z - maxZDistanceValue;
+                } else {
+                    smoothTarget.z = target.z + maxZDistanceValue;
+                }
             }
 
-            transform.position = finalTarget;
-
+            transform.position = smoothTarget;
+            //transform.LookAt(objectToFollow.transform);
         }
     }
 
