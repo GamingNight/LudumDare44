@@ -87,10 +87,10 @@ public class StreamViewManager : MonoBehaviour
         int millions = Mathf.RoundToInt(money / 1000000);
         int thousands = Mathf.RoundToInt((money % 1000000) / 1000);
         int units = Mathf.RoundToInt(money % 1000);
-        moneyText.text = "$   " + millions + "." + thousands.ToString("D3") + "." + units.ToString("D3");
+        moneyText.text = "$   " + thousands + "." + units.ToString("D3");
         int minutes = Mathf.FloorToInt(GameManager.TOTAL_PLAY_TIME / 60f);
         int seconds = Mathf.FloorToInt(GameManager.TOTAL_PLAY_TIME % 60);
-        chatText.text = "Tired ? You already get $ " + millions + "." + thousands.ToString("D3") + "." + units.ToString("D3") + " for " + minutes + "m " + seconds + "s Live.";
+        chatText.text = "Tired ? You already get $ " + thousands + "." + units.ToString("D3") + " for " + minutes + "m " + seconds + "s Live.";
         //moneyText.text = money.ToString();
 
         if (streamViews == 0 && !neverEnd)
