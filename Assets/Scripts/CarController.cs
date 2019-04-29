@@ -59,7 +59,7 @@ public class CarController : MonoBehaviour
 
     void FixedUpdate() {
         float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
+        float v = Input.GetAxis("Brake");
         bool accelerate = Input.GetButton("Accelerate");
         speedLocal = transform.InverseTransformDirection(rgbd.velocity).x;
         speedDrift = transform.InverseTransformDirection(rgbd.velocity).y;
