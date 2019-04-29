@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3084147569559389339}
   - component: {fileID: 3487066026314548093}
   m_Layer: 0
-  m_Name: digueBeton
+  m_Name: PlotDig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,7 +118,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ed1dfe7fad8d72e4aa5df7ac5c9e2234, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
