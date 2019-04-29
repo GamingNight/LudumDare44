@@ -5528,6 +5528,8 @@ MonoBehaviour:
   carCanvas: {fileID: 0}
   carTextUIPrefab: {fileID: 2488933133373581797, guid: 9f5b916db91add241b43edf83c694b7d,
     type: 3}
+  dollarAnimationPrefab: {fileID: 3245033278248859735, guid: 511055ee1d801614bbbaa40b86bc3cd1,
+    type: 3}
   pickupViewersSource: {fileID: 7559750403743163113}
   loseViewersSource: {fileID: 1846653220265557096}
   minViewDecreaseSpeed: 5
