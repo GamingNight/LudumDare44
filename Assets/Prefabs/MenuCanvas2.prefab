@@ -836,7 +836,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Welcome to YouLive
+  m_Text: 'Welcome to GTApp
 
     Congrats you are almost ready for your first live :)
 
@@ -998,7 +998,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: TouLiveBot
+  m_Text: GTAppBot
 --- !u!1 &1949917768
 GameObject:
   m_ObjectHideFlags: 0
@@ -1424,7 +1424,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: TouLiveBot
+  m_Text: GTAppBot
 --- !u!1 &856777706805692896
 GameObject:
   m_ObjectHideFlags: 0
@@ -2035,7 +2035,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: TouLiveBot
+  m_Text: GTAppBot
 --- !u!1 &4393789560601871806
 GameObject:
   m_ObjectHideFlags: 0

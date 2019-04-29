@@ -415,7 +415,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: TouLiveBot
+  m_Text: GTAppBot
 --- !u!1 &578797443
 GameObject:
   m_ObjectHideFlags: 0
@@ -1361,7 +1361,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: TouLiveBot
+  m_Text: GTABot
 --- !u!1 &1707914776
 GameObject:
   m_ObjectHideFlags: 0
