@@ -5433,7 +5433,6 @@ GameObject:
   - component: {fileID: 3102176302719633562}
   - component: {fileID: 3102176302719633563}
   - component: {fileID: 4486846072942997105}
-  - component: {fileID: 1012174287}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -5523,6 +5522,7 @@ MonoBehaviour:
   viewPanel: {fileID: 0}
   viewCounter: {fileID: 0}
   moneyText: {fileID: 0}
+  ChatText: {fileID: 0}
   carCanvas: {fileID: 0}
   carTextUIPrefab: {fileID: 2488933133373581797, guid: 9f5b916db91add241b43edf83c694b7d,
     type: 3}
@@ -5531,22 +5531,6 @@ MonoBehaviour:
   minViewDecreaseSpeed: 5
   maxViewDecreaseSpeed: 50
   neverEnd: 1
---- !u!208 &1012174287
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3102176302719633566}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 2.55, y: 1.3, z: 0.5}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 1, y: 0, z: -0.6}
-  m_TimeToStationary: 0.5
 --- !u!1 &4806885149023261673
 GameObject:
   m_ObjectHideFlags: 0
