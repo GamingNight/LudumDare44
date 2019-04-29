@@ -34,6 +34,10 @@ public class CarController : MonoBehaviour
 
     private void Start()
     {
+        if(GameManager.FINAL_PLAYER_POSITION.x != -1 && GameManager.FINAL_PLAYER_POSITION.y != -1 && GameManager.FINAL_PLAYER_POSITION.z != -1){
+            transform.position = GameManager.FINAL_PLAYER_POSITION;
+            transform.eulerAngles = GameManager.FINAL_PLAYER_EULER_ANGLES;
+        }
 
         rgbd = GetComponent<Rigidbody>();
         pcSystems = GetComponentsInChildren<ParticleSystem>();

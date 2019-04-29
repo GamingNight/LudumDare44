@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     private static GameManager instance;
     public static float FINAL_MONEY;
     public static float TOTAL_PLAY_TIME;
+    public static Vector3 FINAL_PLAYER_POSITION = new Vector3(-1, -1, -1);
+    public static Vector3 FINAL_PLAYER_EULER_ANGLES = new Vector3(-1, -1, -1);
     public static bool pause = false;
 
     public RectTransform phoneTransform;
@@ -109,6 +111,8 @@ public class GameManager : MonoBehaviour
     {
         FINAL_MONEY = finalMoney;
         TOTAL_PLAY_TIME = playtime;
+        FINAL_PLAYER_POSITION = player.transform.position;
+        FINAL_PLAYER_EULER_ANGLES = player.transform.eulerAngles;
         SceneManager.LoadScene("EndScreen");
     }
 
