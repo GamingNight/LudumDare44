@@ -110,11 +110,15 @@ public class CarController : MonoBehaviour
         {
             bool drift_condition = (Mathf.Abs(speedDrift) > 20 || (timer==0 && v<0));
 
-            timerDrift = timerDrift + Time.deltaTime;
-            if (drift_condition == true && timerDrift == 2)
+            Debug.Log(timerDrift);
+            if (drift_condition == true)
             {
-                GameManager.Instance().GetPlayer().GetComponent<StreamViewManager>().UpdateStreamPoints(pointsDrift);
-                timerDrift = 0;
+                timerDrift = timerDrift + Time.deltaTime;
+                if (timerDrift==1)
+                {
+                    GameManager.Instance().GetPlayer().GetComponent<StreamViewManager>().UpdateStreamPoints(pointsDrift);
+                    timerDrift = 0;
+                }
             }
             if (drift_condition && !pcSystem.isPlaying)
             {
