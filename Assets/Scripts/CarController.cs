@@ -51,7 +51,7 @@ public class CarController : MonoBehaviour
         if (Input.GetButtonDown("Horn")) {
             hornSound.Play();
         }
-        if (GameManager.Instance().getPlayTime() - fearTimer > 10) {
+        if ((fearTimer == 0) || (GameManager.Instance().getPlayTime() - fearTimer > 10)) {
             fearTimer = 0;
             fearStatus = false;
         }
