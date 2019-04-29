@@ -44,7 +44,7 @@ public class NPCNavigation : MonoBehaviour {
     }
 
     private void UpdateTarget() {
-        currentTarget = targets[UnityEngine.Random.Range(0, targets.Count)];
+        currentTarget = targets[Random.Range(0, targets.Count)];
         agent.SetDestination(currentTarget);
     }
 }

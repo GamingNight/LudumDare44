@@ -18,8 +18,8 @@ GameObject:
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &944691630809445053
 Transform:
@@ -220,8 +220,8 @@ GameObject:
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &6877938907428696976
 Transform:
@@ -416,7 +416,7 @@ GameObject:
   - component: {fileID: 583993267632736756}
   - component: {fileID: 8333812510377731518}
   m_Layer: 0
-  m_Name: DuoBeton                driftSound.PlayWithFadeIn(); (4)
+  m_Name: PlotsDuo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
