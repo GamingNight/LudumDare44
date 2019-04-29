@@ -178,6 +178,7 @@ MonoBehaviour:
   points: 100
   active: 1
   grazeSpeedLimit: 15
+  updateViewersAtStay: 0
 --- !u!1 &2195982603215944584
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,7 +208,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2195982603215944584}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.94, y: 0.1, z: 4.48}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2195982601451511962}
@@ -280,6 +281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetContainer: {fileID: 0}
   animator: {fileID: 5574128534844319305}
+  fearStatus: 0
 --- !u!82 &8556782914923536694
 AudioSource:
   m_ObjectHideFlags: 0
