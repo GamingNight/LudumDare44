@@ -5522,7 +5522,8 @@ MonoBehaviour:
   viewPanel: {fileID: 0}
   viewCounter: {fileID: 0}
   moneyText: {fileID: 0}
-  ChatText: {fileID: 0}
+  chatText: {fileID: 0}
+  tipPanel: {fileID: 0}
   carCanvas: {fileID: 0}
   carTextUIPrefab: {fileID: 2488933133373581797, guid: 9f5b916db91add241b43edf83c694b7d,
     type: 3}
@@ -5531,6 +5532,7 @@ MonoBehaviour:
   minViewDecreaseSpeed: 5
   maxViewDecreaseSpeed: 50
   neverEnd: 1
+  tipperTextAsset: {fileID: 4900000, guid: 1ec5e67292a437f43a5618388e528e5b, type: 3}
 --- !u!1 &4806885149023261673
 GameObject:
   m_ObjectHideFlags: 0
