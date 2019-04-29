@@ -29,6 +29,7 @@ public class DeathByCollision : MonoBehaviour {
             collisionSound.pitch = initialPitch + Random.Range(-0.2f, 0.2f);
             collisionSound.Play();
             player.GetComponent<CarController>().setFearStatus(true);
+            MusicManager.Instance().NPCiskilled();
             spriteRenderer.sortingOrder = 0;
             grazeTrigger.active = false;
             active = false;
