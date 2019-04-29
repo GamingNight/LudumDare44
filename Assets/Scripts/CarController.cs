@@ -116,7 +116,6 @@ public class CarController : MonoBehaviour
                 if (timerDrift>0.4)
                 {
                     GameManager.Instance().GetPlayer().GetComponent<StreamViewManager>().UpdateStreamPoints(pointsDrift);
-                    Debug.Log("tipDrift");
                     timerDrift = 0;
                 }
             }
