@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &4814880869104932145
 AudioSource:
   m_ObjectHideFlags: 0
@@ -401,7 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &3528889044255411513
 AudioSource:
   m_ObjectHideFlags: 0
@@ -604,7 +604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &9181594278174141653
 AudioSource:
   m_ObjectHideFlags: 0
@@ -842,7 +842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &2814496891334015855
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1045,7 +1045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &4814880867770776579
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1340,7 +1340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &3528889045604328459
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1501,10 +1501,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce2acdc2b92b354da22e58c526f9bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 5
+  points: 10
   active: 1
   grazeSpeedLimit: 15
-  updateViewersAtStay: 0
+  updateViewersAtStay: 1
 --- !u!1 &935055369074833873
 GameObject:
   m_ObjectHideFlags: 0
@@ -1611,7 +1611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &2814496890521408093
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1814,7 +1814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &9181594279540934119
 AudioSource:
   m_ObjectHideFlags: 0

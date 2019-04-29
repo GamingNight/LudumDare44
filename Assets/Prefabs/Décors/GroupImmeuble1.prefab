@@ -327,7 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &5916448909304337250
 AudioSource:
   m_ObjectHideFlags: 0
@@ -530,7 +530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &814529303505052348
 AudioSource:
   m_ObjectHideFlags: 0
@@ -733,7 +733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &2279596899301477494
 AudioSource:
   m_ObjectHideFlags: 0
@@ -936,7 +936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &5916448909137666047
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1139,7 +1139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &814529303875186209
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1342,7 +1342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &2279596899197681899
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1501,10 +1501,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce2acdc2b92b354da22e58c526f9bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 5
+  points: 10
   active: 1
   grazeSpeedLimit: 15
-  updateViewersAtStay: 0
+  updateViewersAtStay: 1
 --- !u!1 &6828130465196415477
 GameObject:
   m_ObjectHideFlags: 0
@@ -1611,7 +1611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &3036693991358080351
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1814,7 +1814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &3036693991187212738
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2157,10 +2157,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce2acdc2b92b354da22e58c526f9bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 5
+  points: 10
   active: 1
   grazeSpeedLimit: 15
-  updateViewersAtStay: 0
+  updateViewersAtStay: 1
 --- !u!1 &6828130465645062940
 GameObject:
   m_ObjectHideFlags: 0
@@ -2267,7 +2267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &2279596898197359950
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2470,7 +2470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &2279596898217878908
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2673,7 +2673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &5916448910201353973
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2876,7 +2876,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &814529304939054891
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3079,7 +3079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &814529304962592537
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3282,7 +3282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &5916448910216617671
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3577,7 +3577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &3036693992271986888
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3780,7 +3780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &3036693992282941690
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4031,10 +4031,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce2acdc2b92b354da22e58c526f9bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 5
+  points: 10
   active: 1
   grazeSpeedLimit: 15
-  updateViewersAtStay: 0
+  updateViewersAtStay: 1
 --- !u!1 &6828130466628764901
 GameObject:
   m_ObjectHideFlags: 0
@@ -4097,7 +4097,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce2acdc2b92b354da22e58c526f9bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 5
+  points: 10
   active: 1
   grazeSpeedLimit: 15
-  updateViewersAtStay: 0
+  updateViewersAtStay: 1

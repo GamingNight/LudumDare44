@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &5983149449351110821
 AudioSource:
   m_ObjectHideFlags: 0
@@ -265,10 +265,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce2acdc2b92b354da22e58c526f9bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 5
+  points: 10
   active: 1
   grazeSpeedLimit: 15
-  updateViewersAtStay: 0
+  updateViewersAtStay: 1
 --- !u!1 &2098807159045121399
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,7 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &3951508555023044347
 AudioSource:
   m_ObjectHideFlags: 0
@@ -670,7 +670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &2387101288089522591
 AudioSource:
   m_ObjectHideFlags: 0
@@ -873,7 +873,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &7976470065232785523
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1201,7 +1201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &4205966599193267427
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1404,7 +1404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &2758924058725928724
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1607,7 +1607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &7879773347274230041
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1766,10 +1766,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce2acdc2b92b354da22e58c526f9bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 5
+  points: 10
   active: 1
   grazeSpeedLimit: 15
-  updateViewersAtStay: 0
+  updateViewersAtStay: 1
 --- !u!1 &8480294066695142678
 GameObject:
   m_ObjectHideFlags: 0
@@ -1876,7 +1876,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &5843993082291319616
 AudioSource:
   m_ObjectHideFlags: 0

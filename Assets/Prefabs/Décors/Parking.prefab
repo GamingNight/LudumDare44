@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &3523038951900241398
 AudioSource:
   m_ObjectHideFlags: 0
@@ -386,7 +386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &6771219291309792368
 AudioSource:
   m_ObjectHideFlags: 0
@@ -589,7 +589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &105674958360065576
 AudioSource:
   m_ObjectHideFlags: 0
@@ -792,7 +792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &8670647575524919255
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1499,7 +1499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &6171093017922981887
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1945,7 +1945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce2acdc2b92b354da22e58c526f9bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 5
+  points: 10
   active: 1
   grazeSpeedLimit: 15
   updateViewersAtStay: 1
@@ -2055,7 +2055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &8305833885433156269
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2350,7 +2350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &7884127244430718090
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2553,7 +2553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &2098363532028077134
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2756,7 +2756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af922f2772d32409e4ab8af02f42f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -5
+  points: -10
 --- !u!82 &3038917221219199182
 AudioSource:
   m_ObjectHideFlags: 0

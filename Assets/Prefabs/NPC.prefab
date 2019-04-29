@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce2acdc2b92b354da22e58c526f9bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 100
+  points: 200
   active: 1
   grazeSpeedLimit: 15
   updateViewersAtStay: 0
@@ -324,7 +324,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 2195982601368922308}
   bloodSpriteRenderer: {fileID: 3973161166228712936}
   animator: {fileID: 5574128534844319305}
-  points: -50
+  points: -100
   active: 1
 --- !u!195 &2195982603215944594
 NavMeshAgent:
