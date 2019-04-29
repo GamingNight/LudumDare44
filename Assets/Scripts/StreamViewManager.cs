@@ -60,7 +60,11 @@ public class StreamViewManager : MonoBehaviour {
         //Update View and Money HUD
         int roundedViews = Mathf.RoundToInt(streamViews);
         viewCounter.text = roundedViews.ToString();
-        moneyText.text = money.ToString();
+        int millions = Mathf.RoundToInt(money / 1000000);
+        int thousands = Mathf.RoundToInt((money % 1000000) / 1000);
+        int units = Mathf.RoundToInt(money % 1000);
+        moneyText.text = "$   " + millions + "." + thousands.ToString("D3") + "." + units.ToString("D3");
+        //moneyText.text = money.ToString();
 
         if (streamViews == 0 && !neverEnd) {
             GameManager.Instance().EndLive(money);

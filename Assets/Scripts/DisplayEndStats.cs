@@ -12,7 +12,7 @@ public class DisplayEndStats : MonoBehaviour
     {
         int millions = Mathf.RoundToInt(GameManager.FINAL_MONEY / 1000000);
         int thousands = Mathf.RoundToInt((GameManager.FINAL_MONEY % 1000000)/1000);
-        int units = Mathf.RoundToInt(GameManager.TOTAL_PLAY_TIME % 1000);
+        int units = Mathf.RoundToInt(GameManager.FINAL_MONEY % 1000);
         moneyText.text = "$ "+millions+"."+ thousands.ToString("D3") +"."+ units.ToString("D3");
         int minutes = Mathf.RoundToInt(GameManager.TOTAL_PLAY_TIME / 60f);
         int seconds = Mathf.RoundToInt(GameManager.TOTAL_PLAY_TIME % 60);
