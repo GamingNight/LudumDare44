@@ -18,17 +18,12 @@ public class MenuNavig : MonoBehaviour
     {
         SceneManager.LoadScene("Menu");
     }
-    public void ReturnToLive()
-    {
-        StartCoroutine(LaunchMainSceneCoroutine(false));
-        GameManager.pause = false;
-    }
     public void InitLaunchMainScene()
     {
-        StartCoroutine(LaunchMainSceneCoroutine(true));
+        StartCoroutine(LaunchMainSceneCoroutine());
     }
 
-    private IEnumerator LaunchMainSceneCoroutine(bool LoadScene)
+    private IEnumerator LaunchMainSceneCoroutine()
     {
         Vector2 targetPosition = new Vector2(900, -1200);
         float totalTime =0.3f;
@@ -44,9 +39,6 @@ public class MenuNavig : MonoBehaviour
             yield return new WaitForSeconds(step);
             currentTime += step;
         }
-        if (LoadScene == true) 
-        {
-            SceneManager.LoadScene("sampleScene");
-        }
+        SceneManager.LoadScene("sampleScene");
     }
 }
