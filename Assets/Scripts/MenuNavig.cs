@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class MenuNavig : MonoBehaviour
 {
     // Update is called once per frame
@@ -17,13 +18,17 @@ public class MenuNavig : MonoBehaviour
     {
         SceneManager.LoadScene("Menu");
     }
-
+    public void ReturnToLive()
+    {
+        StartCoroutine(LaunchMainSceneCoroutine(false));
+        GameManager.pause = false;
+    }
     public void InitLaunchMainScene()
     {
-        StartCoroutine(LaunchMainSceneCoroutine());
+        StartCoroutine(LaunchMainSceneCoroutine(true));
     }
 
-    private IEnumerator LaunchMainSceneCoroutine()
+    private IEnumerator LaunchMainSceneCoroutine(bool LoadScene)
     {
         Vector2 targetPosition = new Vector2(900, -1200);
         float totalTime =0.3f;
@@ -39,6 +44,9 @@ public class MenuNavig : MonoBehaviour
             yield return new WaitForSeconds(step);
             currentTime += step;
         }
-        SceneManager.LoadScene("sampleScene");
+        if (LoadScene == true) 
+        {
+            SceneManager.LoadScene("sampleScene");
+        }
     }
 }
