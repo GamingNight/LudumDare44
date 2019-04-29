@@ -4,7 +4,8 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StreamViewManager : MonoBehaviour {
+public class StreamViewManager : MonoBehaviour
+{
 
     private static readonly int[] VIEWERS_LEVELS = { 0, 10, 100, 1000, 10000 };
     private static readonly Color[] VIEWERS_COLORS = { new Color(0.851f, 0.572f, 0.572f, 1f), Color.Lerp(new Color(0.851f, 0.572f, 0.572f, 1f), new Color(0.623f, 0.851f, 0.572f, 1f), 0.2f), Color.Lerp(new Color(0.851f, 0.572f, 0.572f, 1f), new Color(0.623f, 0.851f, 0.572f, 1f), 0.4f), Color.Lerp(new Color(0.851f, 0.572f, 0.572f, 1f), new Color(0.623f, 0.851f, 0.572f, 1f), 0.6f), Color.Lerp(new Color(0.851f, 0.572f, 0.572f, 1f), new Color(0.623f, 0.851f, 0.572f, 1f), 0.8f), new Color(0.623f, 0.851f, 0.572f, 1f) };
@@ -30,7 +31,11 @@ public class StreamViewManager : MonoBehaviour {
     public int maxViewDecreaseSpeed = 50;
     public bool neverEnd = false;
     public TextAsset tipperTextAsset;
-
+    public int timeStep1 = 20;
+    public int timeStep2 = 40;
+    public int timeStep3 = 80;
+    public int timeStep4 = 160;
+    public int timeStep5 = 220;
     //Private
     private float streamViews;
     private float money;
@@ -39,7 +44,8 @@ public class StreamViewManager : MonoBehaviour {
     private float viewDecreaseSpeed;
     private List<string> allTipperPseudos;
 
-    void Start() {
+    void Start()
+    {
         streamViews = 200;
         money = 0;
         timeSinceLastMoneyCheck = 0;
@@ -48,15 +54,18 @@ public class StreamViewManager : MonoBehaviour {
         allTipperPseudos = ParseTextAsset(tipperTextAsset);
     }
 
-    private void Update() {
+    private void Update()
+    {
 
         //Decrease views accumulated so far depending on the veolcity of the car
-        viewDecreaseSpeed = computeViewsDecreaseSpeed(viewDecreaseSpeed);
-        streamViews -= Time.deltaTime * viewDecreaseSpeed;
+        viewDecreaseSpeed = ComputeViewsDecreaseSpeed(viewDecreaseSpeed);
+        float coef = GetTimeCoef();
+        streamViews -= Time.deltaTime * viewDecreaseSpeed * coef;
         streamViews = Mathf.Max(0, streamViews);
         //Check the corresponding viewer index
         int viewerIndex = 0;
-        while (viewerIndex < VIEWERS_LEVELS.Length && streamViews > VIEWERS_LEVELS[viewerIndex]) {
+        while (viewerIndex < VIEWERS_LEVELS.Length && streamViews > VIEWERS_LEVELS[viewerIndex])
+        {
             viewerIndex++;
         }
 
@@ -67,7 +76,8 @@ public class StreamViewManager : MonoBehaviour {
 
         //Update Money
         timeSinceLastMoneyCheck += Time.deltaTime;
-        if (timeSinceLastMoneyCheck >= MONEY_TIME_CHECK) {
+        if (timeSinceLastMoneyCheck >= MONEY_TIME_CHECK)
+        {
             UpdateMoney(viewerIndex);
         }
 
@@ -83,13 +93,14 @@ public class StreamViewManager : MonoBehaviour {
         chatText.text = "Tired ? You already get $ " + millions + "." + thousands.ToString("D3") + "." + units.ToString("D3") + " for " + minutes + "m " + seconds + "s Live.";
         //moneyText.text = money.ToString();
 
-        if (streamViews == 0 && !neverEnd) {
+        if (streamViews == 0 && !neverEnd)
+        {
             GameManager.Instance().EndLive(money);
         }
     }
 
-    private float computeViewsDecreaseSpeed(float currentViewDecreaseSpeed) {
-
+    private float ComputeViewsDecreaseSpeed(float currentViewDecreaseSpeed)
+    {
         float minVelocity = 10f;
         float maxVelocity = 40f;
         float velocity = Mathf.Min(maxVelocity, Mathf.Max(minVelocity, rgbd.velocity.magnitude));
@@ -98,22 +109,48 @@ public class StreamViewManager : MonoBehaviour {
         return Mathf.Lerp(currentViewDecreaseSpeed, targetDecreaseSpeed, Time.deltaTime / 10f);
     }
 
-    public void UpdateStreamPoints(float points) {
+    private float GetTimeCoef(){
+        
+        float timer = GameManager.Instance().getPlayTime();
+        float coef = 0.1f;
+        if (timer > timeStep5){
+                coef = 2f;
+            } else if (timer > timeStep4) {
+                coef = 1.5f;
+            } else if (timer > timeStep3) {
+                coef = 1f;
+            } else if (timer > timeStep2) {
+                coef = 0.7f;
+            } else if (timer > timeStep1) {
+                coef = 0.3f;
+            }
+
+            return coef;
+            //coef = 1;
+    }
+
+    public void UpdateStreamPoints(float points)
+    {
         streamViews += points;
         Color color;
-        if (points > 0) {
+        if (points > 0)
+        {
             pickupViewersSource.Play();
             color = new Color(0.623f, 0.851f, 0.572f, 1f);
-        } else {
+        }
+        else
+        {
             loseViewersSource.Play();
             color = new Color(0.851f, 0.572f, 0.572f, 1f);
         }
         StartCoroutine(StartTextUICoroutine(color, points));
     }
 
-    public void UpdateMoney(int viewerIndex) {
+    public void UpdateMoney(int viewerIndex)
+    {
         float moneyProbability = Random.Range(0f, 1f);
-        if (moneyProbability < MONEY_PROBAS[viewerIndex]) {
+        if (moneyProbability < MONEY_PROBAS[viewerIndex])
+        {
             int tip = Random.Range(30, 500);
             money += tip;
             StartCoroutine(UpdateTipPanelCoroutine(tip));
@@ -121,10 +158,11 @@ public class StreamViewManager : MonoBehaviour {
         timeSinceLastMoneyCheck = 0f;
     }
 
-    private IEnumerator UpdateTipPanelCoroutine(int tip) {
+    private IEnumerator UpdateTipPanelCoroutine(int tip)
+    {
 
         tipPanel.SetActive(true);
-
+        
         GameObject dollarAnimObj = Instantiate<GameObject>(dollarAnimationPrefab);
         dollarAnimObj.transform.SetParent(tipPanel.transform, false);
 
@@ -141,7 +179,8 @@ public class StreamViewManager : MonoBehaviour {
         float step = 0.01f;
 
         float currentTime = 0;
-        while (currentTime < transitionTime) {
+        while (currentTime < transitionTime)
+        {
             tipPanel.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, currentTime / transitionTime);
             float alphaLerp = Mathf.Lerp(0f, 1f, currentTime / transitionTime);
             tipperText.color = new Color(tipperText.color.r, tipperText.color.g, tipperText.color.b, alphaLerp);
@@ -153,7 +192,8 @@ public class StreamViewManager : MonoBehaviour {
         yield return new WaitForSeconds(stayTime);
 
         currentTime = 0;
-        while (currentTime < transitionTime) {
+        while (currentTime < transitionTime)
+        {
             tipPanel.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, currentTime / transitionTime);
             float alphaLerp = Mathf.Lerp(1f, 0f, currentTime / transitionTime);
             tipperText.color = new Color(tipperText.color.r, tipperText.color.g, tipperText.color.b, alphaLerp);
@@ -165,14 +205,17 @@ public class StreamViewManager : MonoBehaviour {
         tipPanel.SetActive(false);
     }
 
-    private List<string> ParseTextAsset(TextAsset textAsset) {
+    private List<string> ParseTextAsset(TextAsset textAsset)
+    {
 
         string fullText = textAsset.text;
         string[] lines = Regex.Split(fullText, "\n|\r|\r\n");
         List<string> nonEmptyLines = new List<string>();
-        for (int i = 0; i < lines.Length; i++) {
+        for (int i = 0; i < lines.Length; i++)
+        {
             lines[i] = lines[i].Trim();
-            if (lines[i] != "") {
+            if (lines[i] != "")
+            {
                 nonEmptyLines.Add(lines[i]);
             }
         }
@@ -180,7 +223,8 @@ public class StreamViewManager : MonoBehaviour {
     }
 
 
-    private IEnumerator StartTextUICoroutine(Color color, float points) {
+    private IEnumerator StartTextUICoroutine(Color color, float points)
+    {
 
         float totalTime = 0.5f;
         float step = 0.01f;
@@ -193,7 +237,8 @@ public class StreamViewManager : MonoBehaviour {
         carTextUI.GetComponent<Text>().text = points.ToString();
         carTextUI.GetComponent<Text>().color = color;
 
-        while (currentTime < totalTime) {
+        while (currentTime < totalTime)
+        {
             float top = Mathf.Lerp(startTopPosition, endTopPosition, currentTime / totalTime);
             RectTransform rectTransform = ((RectTransform)carTextUI.transform);
             rectTransform.offsetMax = new Vector2(rectTransform.offsetMax.x, top);
