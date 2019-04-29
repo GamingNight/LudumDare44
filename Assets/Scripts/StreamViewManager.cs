@@ -1,4 +1,6 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,23 +11,32 @@ public class StreamViewManager : MonoBehaviour {
     private static readonly float[] MONEY_PROBAS = { 0, 0.1f, 0.2f, 0.5f, 0.7f, 0.9f };
     private static readonly float MONEY_TIME_CHECK = 5f;
 
+    //UI
     public Image viewPanel;
     public Text viewCounter;
     public Text moneyText;
-    public Text ChatText;
+    public Text chatText;
+    public GameObject tipPanel;
     public Canvas carCanvas;
     public GameObject carTextUIPrefab;
+
+    //Sound
     public AudioSource pickupViewersSource;
     public AudioSource loseViewersSource;
+
+    //Various public variables
     public int minViewDecreaseSpeed = 5;
     public int maxViewDecreaseSpeed = 50;
     public bool neverEnd = false;
+    public TextAsset tipperTextAsset;
 
+    //Private
     private float streamViews;
     private float money;
     private float timeSinceLastMoneyCheck;
     private Rigidbody rgbd;
     private float viewDecreaseSpeed;
+    private List<string> allTiperPseudos;
 
     void Start() {
         streamViews = 200;
@@ -33,6 +44,7 @@ public class StreamViewManager : MonoBehaviour {
         timeSinceLastMoneyCheck = 0;
         rgbd = GetComponent<Rigidbody>();
         viewDecreaseSpeed = minViewDecreaseSpeed;
+        allTiperPseudos = ParseTextAsset(tipperTextAsset);
     }
 
     private void Update() {
@@ -67,8 +79,7 @@ public class StreamViewManager : MonoBehaviour {
         moneyText.text = "$   " + millions + "." + thousands.ToString("D3") + "." + units.ToString("D3");
         int minutes = Mathf.RoundToInt(GameManager.TOTAL_PLAY_TIME / 60f);
         int seconds = Mathf.RoundToInt(GameManager.TOTAL_PLAY_TIME % 60);
-        ChatText.text = "Tired ? You already get $ " + millions + "." + thousands.ToString("D3") + "." + units.ToString("D3") +" for " + minutes + "m " + seconds + "s Live.";
-        //moneyText.text = money.ToString();
+        chatText.text = "Tired ? You already get $ " + millions + "." + thousands.ToString("D3") + "." + units.ToString("D3") + " for " + minutes + "m " + seconds + "s Live.";
 
         if (streamViews == 0 && !neverEnd) {
             GameManager.Instance().EndLive(money);
@@ -101,9 +112,67 @@ public class StreamViewManager : MonoBehaviour {
     public void UpdateMoney(int viewerIndex) {
         float moneyProbability = Random.Range(0f, 1f);
         if (moneyProbability < MONEY_PROBAS[viewerIndex]) {
-            money += Random.Range(30, 500);
+            int tip = Random.Range(30, 500);
+            money += tip;
+            StartCoroutine(UpdateTipPanelCoroutine(tip));
         }
         timeSinceLastMoneyCheck = 0f;
+    }
+
+    private IEnumerator UpdateTipPanelCoroutine(int tip) {
+
+        tipPanel.SetActive(true);
+
+        Text tipperText = tipPanel.transform.GetChild(0).GetComponent<Text>();
+        int rndPseudoIndex = Random.Range(0, allTiperPseudos.Count);
+        string pseudo = allTiperPseudos[rndPseudoIndex];
+        Debug.Log("tipper " + pseudo + " at index " + rndPseudoIndex);
+        tipperText.text = pseudo + " tipped you:";
+        Text tipText = tipPanel.transform.GetChild(1).GetComponent<Text>();
+        tipText.text = "$ " + tip.ToString();
+
+        tipPanel.SetActive(true);
+        float transitionTime = 0.2f;
+        float stayTime = 2f;
+        float step = 0.01f;
+
+        float currentTime = 0;
+        while (currentTime < transitionTime) {
+            tipPanel.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, currentTime / transitionTime);
+            float alphaLerp = Mathf.Lerp(0f, 1f, currentTime / transitionTime);
+            tipperText.color = new Color(tipperText.color.r, tipperText.color.g, tipperText.color.b, alphaLerp);
+            tipText.color = new Color(tipText.color.r, tipText.color.g, tipText.color.b, alphaLerp);
+            yield return new WaitForSeconds(step);
+            currentTime += step;
+        }
+
+        yield return new WaitForSeconds(stayTime);
+
+        currentTime = 0;
+        while (currentTime < transitionTime) {
+            tipPanel.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, currentTime / transitionTime);
+            float alphaLerp = Mathf.Lerp(1f, 0f, currentTime / transitionTime);
+            tipperText.color = new Color(tipperText.color.r, tipperText.color.g, tipperText.color.b, alphaLerp);
+            tipText.color = new Color(tipText.color.r, tipText.color.g, tipText.color.b, alphaLerp);
+            yield return new WaitForSeconds(step);
+            currentTime += step;
+        }
+
+        tipPanel.SetActive(false);
+    }
+
+    private List<string> ParseTextAsset(TextAsset textAsset) {
+
+        string fullText = textAsset.text;
+        string[] lines = Regex.Split(fullText, "\n|\r|\r\n");
+        List<string> nonEmptyLines = new List<string>();
+        for (int i = 0; i < lines.Length; i++) {
+            lines[i] = lines[i].Trim();
+            if (lines[i] != "") {
+                nonEmptyLines.Add(lines[i]);
+            }
+        }
+        return nonEmptyLines;
     }
 
     private IEnumerator StartTextUICoroutine(Color color, float points) {
