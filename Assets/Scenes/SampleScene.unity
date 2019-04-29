@@ -3055,7 +3055,7 @@ PrefabInstance:
     - target: {fileID: 3532845664171741684, guid: 51a411fc69efc4f4f88e4cfde1a2c6d1,
         type: 3}
       propertyPath: totalNPCCount
-      value: 500
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3532845664171741684, guid: 51a411fc69efc4f4f88e4cfde1a2c6d1,
         type: 3}
@@ -10006,6 +10006,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1699853384, guid: f31fee1616968ca4eb8dfc73fe65345c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 72
+      objectReference: {fileID: 0}
     - target: {fileID: 1699853383, guid: f31fee1616968ca4eb8dfc73fe65345c, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
@@ -10049,10 +10053,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1699853384, guid: f31fee1616968ca4eb8dfc73fe65345c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 72
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f31fee1616968ca4eb8dfc73fe65345c, type: 3}
@@ -10647,6 +10647,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1699853384, guid: f31fee1616968ca4eb8dfc73fe65345c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 72
+      objectReference: {fileID: 0}
     - target: {fileID: 1699853383, guid: f31fee1616968ca4eb8dfc73fe65345c, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
@@ -10690,10 +10694,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1699853384, guid: f31fee1616968ca4eb8dfc73fe65345c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 72
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f31fee1616968ca4eb8dfc73fe65345c, type: 3}
@@ -12973,7 +12973,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 8.799805}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -25430,6 +25430,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1699853384, guid: f31fee1616968ca4eb8dfc73fe65345c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 72
+      objectReference: {fileID: 0}
     - target: {fileID: 1699853383, guid: f31fee1616968ca4eb8dfc73fe65345c, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
@@ -25473,10 +25477,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1699853384, guid: f31fee1616968ca4eb8dfc73fe65345c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 72
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f31fee1616968ca4eb8dfc73fe65345c, type: 3}
@@ -28442,6 +28442,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1699853384, guid: f31fee1616968ca4eb8dfc73fe65345c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 72
+      objectReference: {fileID: 0}
     - target: {fileID: 1699853383, guid: f31fee1616968ca4eb8dfc73fe65345c, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
@@ -28485,10 +28489,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1699853384, guid: f31fee1616968ca4eb8dfc73fe65345c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 72
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f31fee1616968ca4eb8dfc73fe65345c, type: 3}
