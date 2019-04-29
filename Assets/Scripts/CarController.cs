@@ -3,7 +3,7 @@
 public class CarController : MonoBehaviour
 {
     public float carAcceleration = 1000;
-    public int pointsDrift = 15;
+    public int pointsDrift = 5;
     public float brakingInit = 50;
     public float steering = 0.2f;
     public float timer = 0f;
@@ -110,13 +110,13 @@ public class CarController : MonoBehaviour
         {
             bool drift_condition = (Mathf.Abs(speedDrift) > 20 || (timer==0 && v<0));
 
-            Debug.Log(timerDrift);
             if (drift_condition == true)
             {
                 timerDrift = timerDrift + Time.deltaTime;
-                if (timerDrift==1)
+                if (timerDrift>0.4)
                 {
                     GameManager.Instance().GetPlayer().GetComponent<StreamViewManager>().UpdateStreamPoints(pointsDrift);
+                    Debug.Log("tipDrift");
                     timerDrift = 0;
                 }
             }

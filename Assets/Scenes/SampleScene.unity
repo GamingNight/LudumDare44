@@ -20011,6 +20011,11 @@ PrefabInstance:
       propertyPath: neverEnd
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3102176302719633561, guid: 1f0f4a19b6a25754cb6187e18f5fdfb3,
+        type: 3}
+      propertyPath: pointsDrift
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f0f4a19b6a25754cb6187e18f5fdfb3, type: 3}
 --- !u!1 &1012174286 stripped
