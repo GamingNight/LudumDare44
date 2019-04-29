@@ -112,9 +112,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToFollow: {fileID: 0}
-  strictFollow: 0
+  strictFollow: 1
   smooth: 50
-  minDistance: 40
+  minDistance: 10
   maxDistance: 60
   offsetValue: 15
   maxXDistanceValue: 45
