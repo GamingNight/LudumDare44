@@ -57,6 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fb6ec9562626084e8f8f4362cc0c17e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nbPoints: 500
 --- !u!1 &131132083491207526
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,6 +518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fb6ec9562626084e8f8f4362cc0c17e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nbPoints: 500
 --- !u!1 &9077223983205578058
 GameObject:
   m_ObjectHideFlags: 0
@@ -2441,6 +2443,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9122000404628773052}
     m_Modifications:
+    - target: {fileID: 911101072998525146, guid: 335672a94067a0541a2f37ef18a5f739,
+        type: 3}
+      propertyPath: m_Name
+      value: Ball
+      objectReference: {fileID: 0}
     - target: {fileID: 911101072998525150, guid: 335672a94067a0541a2f37ef18a5f739,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2495,11 +2502,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 911101072998525146, guid: 335672a94067a0541a2f37ef18a5f739,
-        type: 3}
-      propertyPath: m_Name
-      value: Ball
       objectReference: {fileID: 0}
     - target: {fileID: 911101072998525147, guid: 335672a94067a0541a2f37ef18a5f739,
         type: 3}
