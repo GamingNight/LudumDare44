@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     float xI;
     float yI;
     private Vector2 posInit;
+    private AudioSource audioData;
 
     Vector2 velocityDamp = new Vector2(0.0F, 0.0F);
     //float test=0;
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
         xI = phoneTransform.anchoredPosition.x;
         yI = phoneTransform.anchoredPosition.y;
         posInit = new Vector2(xI, yI);
+        audioData = GetComponent<AudioSource>();
 
         pause = false;
         playtime = 0;
@@ -66,11 +68,13 @@ public class GameManager : MonoBehaviour
         {
             pause = true;
             lerpTime = 0;
+            audioData.Play(0);
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && pause)
         {
             pause = false;
             lerpTime = 0;
+            audioData.Play(0);
         }
         if (!pause && lerpTime == 0)
         {
