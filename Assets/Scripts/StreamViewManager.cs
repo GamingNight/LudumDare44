@@ -12,6 +12,7 @@ public class StreamViewManager : MonoBehaviour {
     public Image viewPanel;
     public Text viewCounter;
     public Text moneyText;
+    public Text ChatText;
     public Canvas carCanvas;
     public GameObject carTextUIPrefab;
     public AudioSource pickupViewersSource;
@@ -64,6 +65,9 @@ public class StreamViewManager : MonoBehaviour {
         int thousands = Mathf.RoundToInt((money % 1000000) / 1000);
         int units = Mathf.RoundToInt(money % 1000);
         moneyText.text = "$   " + millions + "." + thousands.ToString("D3") + "." + units.ToString("D3");
+        int minutes = Mathf.RoundToInt(GameManager.TOTAL_PLAY_TIME / 60f);
+        int seconds = Mathf.RoundToInt(GameManager.TOTAL_PLAY_TIME % 60);
+        ChatText.text = "Tired ? You already get $ " + millions + "." + thousands.ToString("D3") + "." + units.ToString("D3") +" for " + minutes + "m " + seconds + "s Live.";
         //moneyText.text = money.ToString();
 
         if (streamViews == 0 && !neverEnd) {
