@@ -18,6 +18,25 @@ public class MenuNavig : MonoBehaviour
     {
         SceneManager.LoadScene("Menu");
     }
+    //public void GotIt1()
+    //{
+    //    GameObject Tuto1;
+    //    foreach (Transform child in transform)
+    //    {
+    //        foreach (Transform child2 in child)
+    //        {
+    //            if (child2 == Tuto1)
+    //            {
+    //                Tuto1.setActive = false;
+    //            }
+    //            if (Tuto1.tag == Tuto1)
+    //            {
+    //                Tuto1.setActive = false;
+    //            }
+    //        }
+    //    }
+
+    //}
     public void InitLaunchMainScene()
     {
         StartCoroutine(LaunchMainSceneCoroutine());

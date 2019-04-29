@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Road
+  - Tuto1
+  - Tuto2
+  - TutoCommon
+  - StartScreen
   layers:
   - Default
   - TransparentFX
