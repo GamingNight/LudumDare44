@@ -3,6 +3,7 @@
 public class CarController : MonoBehaviour
 {
     public float carAcceleration = 1000;
+    public int pointsDrift = 15;
     public float brakingInit = 50;
     public float steering = 0.2f;
     public float timer = 0f;
@@ -106,14 +107,18 @@ public class CarController : MonoBehaviour
         transform.Rotate(0, 0, -h * Time.deltaTime * speedLocal * steering * braking);
         foreach (ParticleSystem pcSystem in pcSystems)
         {
-            if ((Mathf.Abs(speedDrift) > 20 || (timer==0 && v<0)) && !pcSystem.isPlaying)
+            bool drift_condition = (Mathf.Abs(speedDrift) > 20 || (timer==0 && v<0));
+            if (drift_condition && !pcSystem.isPlaying)
             {
                 pcSystem.Play(true);
                 driftSound.source.pitch = initialPitch + Random.Range(-0.2f, 0.2f);
                 driftSound.PlayWithFadeIn();
+                GameManager.Instance().GetPlayer().GetComponent<StreamViewManager>().UpdateStreamPoints(pointsDrift);
+                
             } else if ((Mathf.Abs(speedDrift) < 10 || timer > 0.1) && pcSystem.isPlaying && v >= 0) {
                 driftSound.StopWithFadeOut();
                 pcSystem.Pause(true);
+                GameManager.Instance().GetPlayer().GetComponent<StreamViewManager>().UpdateStreamPoints(pointsDrift);
             }
             //Debug.Log(pcSystem.isPlaying+"    "+speedDrift);
         }
