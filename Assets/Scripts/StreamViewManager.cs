@@ -141,7 +141,6 @@ public class StreamViewManager : MonoBehaviour
         Text tipperText = tipPanel.transform.GetChild(0).GetComponent<Text>();
         int rndPseudoIndex = Random.Range(0, allTipperPseudos.Count);
         string pseudo = allTipperPseudos[rndPseudoIndex];
-        Debug.Log("tipper " + pseudo + " at index " + rndPseudoIndex);
         tipperText.text = pseudo + " tipped you:";
         Text tipText = tipPanel.transform.GetChild(1).GetComponent<Text>();
         tipText.text = "$ " + tip.ToString();
