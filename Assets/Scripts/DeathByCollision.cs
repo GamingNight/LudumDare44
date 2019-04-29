@@ -5,6 +5,7 @@ using UnityEngine.AI;
 public class DeathByCollision : MonoBehaviour {
 
     public SpriteRenderer spriteRenderer;
+    public SpriteRenderer bloodSpriteRenderer;
     public Animator animator;
 
     public float points = -50;
@@ -31,6 +32,7 @@ public class DeathByCollision : MonoBehaviour {
             player.GetComponent<CarController>().setFearStatus(true);
             MusicManager.Instance().NPCiskilled();
             spriteRenderer.sortingOrder = 0;
+            bloodSpriteRenderer.enabled = true;
             grazeTrigger.active = false;
             active = false;
             GetComponent<NPCNavigation>().enabled = false;
@@ -47,6 +49,7 @@ public class DeathByCollision : MonoBehaviour {
         while (currentTime < totalTime) {
             float alpha = Mathf.Lerp(1, 0, currentTime / totalTime);
             spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, alpha);
+            bloodSpriteRenderer.color = new Color(bloodSpriteRenderer.color.r, bloodSpriteRenderer.color.g, bloodSpriteRenderer.color.b, alpha);
             yield return new WaitForSeconds(step);
             currentTime += step;
         }
