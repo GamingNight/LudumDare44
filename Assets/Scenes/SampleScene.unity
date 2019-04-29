@@ -2923,6 +2923,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPCManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3532845663014887972, guid: 51a411fc69efc4f4f88e4cfde1a2c6d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3532845663014887973, guid: 51a411fc69efc4f4f88e4cfde1a2c6d1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2982,6 +2987,11 @@ PrefabInstance:
         type: 3}
       propertyPath: totalNPCCount
       value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3532845664171741684, guid: 51a411fc69efc4f4f88e4cfde1a2c6d1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51a411fc69efc4f4f88e4cfde1a2c6d1, type: 3}
