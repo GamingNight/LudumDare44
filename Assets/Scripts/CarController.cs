@@ -59,8 +59,12 @@ public class CarController : MonoBehaviour
 
     void FixedUpdate() {
         float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Brake");
-        bool accelerate = Input.GetButton("Accelerate");
+        float v = Input.GetAxis("Brake/Reverse");
+        if (Input.GetButton("Alt-Brake"))
+        {
+            v = -1;
+        }
+        bool accelerate = (Input.GetButton("Accelerate") || Input.GetButton("Alt-Accelerate"));
         speedLocal = transform.InverseTransformDirection(rgbd.velocity).x;
         speedDrift = transform.InverseTransformDirection(rgbd.velocity).y;
         if (speedLocal <= 1)
@@ -74,7 +78,7 @@ public class CarController : MonoBehaviour
         if (v < 0)
         {
             braking = braking + Time.deltaTime * brakingInit / braking * 40;
-            if (timer > 0.1)
+            if (timer > 0.3)
             {
                 rgbd.AddRelativeForce(-Time.deltaTime * carAcceleration / 2, 0, 0);
             }
