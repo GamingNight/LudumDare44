@@ -228,6 +228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6316158907240162126}
   - component: {fileID: 3828639617283583948}
+  - component: {fileID: 925426953097393261}
   m_Layer: 0
   m_Name: BonusTrigger
   m_TagString: Untagged
@@ -263,6 +264,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nbPoints: 30
   destroyAfterScoring: 1
+--- !u!65 &925426953097393261
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181949967066922715}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.12, y: 3.13, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3707915999939178753
 GameObject:
   m_ObjectHideFlags: 0
