@@ -9,6 +9,7 @@ TagManager:
   - Tuto2
   - TutoCommon
   - StartScreen
+  - Ball
   layers:
   - Default
   - TransparentFX

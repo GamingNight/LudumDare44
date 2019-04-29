@@ -9,8 +9,10 @@ public class BonusTrigger : MonoBehaviour {
 
         GameObject player = GameManager.Instance().GetPlayer();
         if (other.gameObject == player) {
-            player.GetComponent<StreamViewManager>().UpdateStreamPoints(30);
-            Destroy(gameObject);
+            player.GetComponent<StreamViewManager>().UpdateStreamPoints(nbPoints);
+            if (destroyAfterScoring) {
+                Destroy(gameObject);
+            }
         }
     }
 }
