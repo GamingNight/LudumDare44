@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2488933133373581816}
   - component: {fileID: 2488933133373581799}
   m_Layer: 0
-  m_Name: Text
+  m_Name: CarTextUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +66,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 0e1d3a5b8751f3442acd9e91e71ce301, type: 3}
     m_FontSize: 72
     m_FontStyle: 0
     m_BestFit: 0

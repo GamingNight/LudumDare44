@@ -8,7 +8,7 @@ public class StreamViewManager : MonoBehaviour
 {
 
     private static readonly int[] VIEWERS_LEVELS = { 0, 10, 100, 1000, 10000 };
-    private static readonly Color[] VIEWERS_COLORS = { Color.red, Color.Lerp(Color.red, Color.green, 0.2f), Color.Lerp(Color.red, Color.green, 0.4f), Color.Lerp(Color.red, Color.green, 0.6f), Color.Lerp(Color.red, Color.green, 0.8f), Color.green };
+    private static readonly Color[] VIEWERS_COLORS = { new Color(0.851f, 0.572f, 0.572f, 1f), Color.Lerp(new Color(0.851f, 0.572f, 0.572f, 1f), new Color(0.623f, 0.851f, 0.572f, 1f), 0.2f), Color.Lerp(new Color(0.851f, 0.572f, 0.572f, 1f), new Color(0.623f, 0.851f, 0.572f, 1f), 0.4f), Color.Lerp(new Color(0.851f, 0.572f, 0.572f, 1f), new Color(0.623f, 0.851f, 0.572f, 1f), 0.6f), Color.Lerp(new Color(0.851f, 0.572f, 0.572f, 1f), new Color(0.623f, 0.851f, 0.572f, 1f), 0.8f), new Color(0.623f, 0.851f, 0.572f, 1f) };
     private static readonly float[] MONEY_PROBAS = { 0, 0.1f, 0.2f, 0.5f, 0.7f, 0.9f };
     private static readonly float MONEY_TIME_CHECK = 5f;
 
@@ -111,12 +111,12 @@ public class StreamViewManager : MonoBehaviour
         if (points > 0)
         {
             pickupViewersSource.Play();
-            color = Color.green;
+            color = new Color(0.623f, 0.851f, 0.572f, 1f);
         }
         else
         {
             loseViewersSource.Play();
-            color = Color.red;
+            color = new Color(0.851f, 0.572f, 0.572f, 1f);
         }
         StartCoroutine(StartTextUICoroutine(color, points));
     }
