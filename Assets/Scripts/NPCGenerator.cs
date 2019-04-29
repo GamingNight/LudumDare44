@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.AI;
 
 public class NPCGenerator : MonoBehaviour {
 
@@ -23,6 +24,9 @@ public class NPCGenerator : MonoBehaviour {
 
     void Update() {
         currentNPCCount = transform.childCount;
+        foreach (Transform child in transform) {
+            Debug.Log("A " + child.gameObject.name + " = " + child.position);
+        }
         if (currentNPCCount < totalNPCCount) {
             for (int i = 0; i < totalNPCCount - currentNPCCount; i++) {
                 GameObject npcClone = Instantiate<GameObject>(npcPrefab);
@@ -32,8 +36,15 @@ public class NPCGenerator : MonoBehaviour {
                 npcClone.name += "From_Point_" + randomIndex + "_" + npcNavPointsPositions[randomIndex].ToString();
                 npcClone.GetComponent<NPCNavigation>().targetContainer = npcNavPointContainer;
                 npcDistribution[randomIndex]++;
+
+                NavMeshHit hit;
+                bool found = NavMesh.SamplePosition(npcClone.transform.position, out hit, 1.0f, NavMesh.AllAreas);
+                Debug.Log("a position was found on the navmesh = " + found + ", at " + hit.position);
             }
             //ShowNPCDistribution();
+        }
+        foreach (Transform child in transform) {
+            Debug.Log("B " + child.gameObject.name + " = " + child.position);
         }
     }
 
